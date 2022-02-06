@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const postData = [1,2,3]
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App postData={postData}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
