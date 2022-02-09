@@ -23,9 +23,8 @@ function App({postData}) {
           <Route path='/save' element={<SaveDishes/>}/>
           <Route path='/feed' element={<Feed/>}/>
           <Route path='/chat' element={<Chat/>}/>
-          {/* <Route path='/' element={<Login/>}/> */}
+          <Route path='/login' element={<Login/>}/>
         </Routes>
-        <Login/>
       <Header />
       <Posts postData={postData}/>
     </div>
