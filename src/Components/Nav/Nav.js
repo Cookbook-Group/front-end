@@ -8,7 +8,7 @@ const Nav = () => {
     
       <nav>
         <Link to='/'>
-          <img className='logo' src='/image/logo.png' alt='logo'/>
+          <img className='logonav' src='/image/logo.png' alt='logo'/>
         </Link>
 
             <ul>
@@ -42,22 +42,11 @@ const Nav = () => {
                 </Link>
               </li>
               <li>  
-              <button>
-                  <Link to='/login'>
-                    Log In
-                  </Link>
-              </button>
+                <Link to='/login'>
+                  <img className='icon' src='/image/icon_login.png' alt='login'/> 
+                </Link>
               </li>
-              <li>
-              <button>
-                  <Link to='/singup'>
-                    Sing Up
-                  </Link>
-              </button>
-              </li>
-            </ul>
-         
-       
+            </ul>    
       </nav>
     
   );
