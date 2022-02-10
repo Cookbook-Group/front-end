@@ -12,11 +12,14 @@ import Feed from './Components/Feed/Feed';
 import Chat from './Components/Chat/Chat';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
-
+import { useState } from 'react';
 import User from './Components/User'
 
 function App({postData, userData}) {
-  let user = userData[0]
+
+  const [user, setUser] = useState()
+  // below code is for testing
+  let tempUser = userData[0]
   return (
     <div className="App">
       <Nav/>
@@ -29,7 +32,7 @@ function App({postData, userData}) {
           <Route path='/login' element={<Login setUser={setUser}/>}/>
         </Routes>
       <Header />
-      <User user={user}/>
+      <User user={tempUser}/>
       <Posts postData={postData}/>
     </div>
   );
