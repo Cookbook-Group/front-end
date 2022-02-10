@@ -12,8 +12,10 @@ import Feed from './Components/Feed/Feed';
 import Chat from './Components/Chat/Chat';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
+import User from './Components/User'
 
-function App({postData}) {
+function App({postData, userData}) {
+  let user = userData[0]
   return (
     <div className="App">
       <Nav/>
@@ -27,6 +29,7 @@ function App({postData}) {
         </Routes>
         <Login/>
       <Header />
+      <User user={user}/>
       <Posts postData={postData}/>
     </div>
   );
