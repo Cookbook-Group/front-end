@@ -12,6 +12,7 @@ import Feed from './Components/Feed/Feed';
 import Chat from './Components/Chat/Chat';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
+import Recipe from './Components/Recipe/Recipe';
 import { useState } from 'react';
 import User from './Components/User'
 
@@ -34,6 +35,7 @@ function App({postData, userData}) {
       <Header />
       <User user={tempUser}/>
       <Posts postData={postData}/>
+      <Recipe/>
     </div>
   );
 }
