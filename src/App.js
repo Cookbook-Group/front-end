@@ -12,12 +12,11 @@ import Feed from './Components/Feed/Feed';
 import Chat from './Components/Chat/Chat';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
-import { useState } from 'react/cjs/react.development';
 
-function App({postData}) {
+import User from './Components/User'
 
-  const [user, setUser] = useState({})
-
+function App({postData, userData}) {
+  let user = userData[0]
   return (
     <div className="App">
       <Nav/>
@@ -30,6 +29,7 @@ function App({postData}) {
           <Route path='/login' element={<Login setUser={setUser}/>}/>
         </Routes>
       <Header />
+      <User user={user}/>
       <Posts postData={postData}/>
     </div>
   );
