@@ -12,6 +12,7 @@ import Feed from './Components/Feed/Feed';
 import Chat from './Components/Chat/Chat';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
+
 import User from './Components/User'
 
 function App({postData, userData}) {
@@ -25,9 +26,8 @@ function App({postData, userData}) {
           <Route path='/save' element={<SaveDishes/>}/>
           <Route path='/feed' element={<Feed/>}/>
           <Route path='/chat' element={<Chat/>}/>
-          {/* <Route path='/' element={<Login/>}/> */}
+          <Route path='/login' element={<Login setUser={setUser}/>}/>
         </Routes>
-        <Login/>
       <Header />
       <User user={user}/>
       <Posts postData={postData}/>

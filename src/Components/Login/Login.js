@@ -1,67 +1,77 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Login.css'
+import { useState } from 'react';
+import Google from '../Google';
+import Signup from '../Signup/Signup';
 
-const Login = () => {
-//     const switchers = [...document.querySelectorAll('.switcher')]
 
-// switchers.forEach(item => {
-// 	item.addEventListener('click', function() {
-// 		switchers.forEach(item => item.parentElement.classList.remove('is-active'))
-// 		this.parentElement.classList.add('is-active')
-// 	})
-// })
+const Login = ({setUser}) => {
+  const [users, setUsers] = useState([])
+  
+  let getUsers = async () => {
+	  let data = await fetch('http://localhost:4004/users')
+	  let allUsers = await data.json()
+	  setUsers(allUsers)
+  }
+
+  useEffect(() => {
+	  getUsers()
+  },[])
+
+  let addUsers = (user) => {
+	  setUsers([...users,user])
+  }
+
+
+  const initialState = {usernameToLogIn: '',passwordToLogIn:''}
+  const [formState, setFormState] =useState(initialState)
+  const handleChange = e =>{
+	  setFormState({
+		  ...formState,
+		  [e.target.id]: e.target.value
+	  })
+  }
+
+  const handleSubmitLogIn = async (e) =>{
+	e.preventDefault()
+	alert(`Welcome back ${formState.usernameToLogIn}! Enjoy the Recipies!`)
+	let data = await fetch(`http://localhost:4004/users/login`,{
+		method: 'POST',
+		body: JSON.stringify({
+			username: formState.usernameToLogIn,
+			password: formState.passwordToLogIn
+		}),
+		headers: {
+			'content-type': 'application/json'
+		}
+	})
+	let userData = await data.json()
+	setUser(userData)
+	setFormState(initialState)
+}
+
+
   return (
-    <div>
+    <div className='login-body'>
 
-<section class="forms-section">
-  <h1 class="section-title"></h1>
-  <div class="forms">
-    <div class="form-wrapper is-active">
-      <button type="button" class="switcher switcher-login">
-        Login
-        <span class="underline"></span>
-      </button>
-      <form class="form form-login">
-        <fieldset>
-          <legend>Please, enter your email and password for login.</legend>
-          <div class="input-block">
-            <label for="login-email">E-mail</label>
-            <input id="login-email" type="email" required/>
-          </div>
-          <div class="input-block">
-            <label for="login-password">Password</label>
-            <input id="login-password" type="password" required/>
-          </div>
-        </fieldset>
-        <button type="submit" class="btn-login">Login</button>
-      </form>
-    </div>
-    <div class="form-wrapper">
-      <button type="button" class="switcher switcher-signup">
-        Sign Up
-        <span class="underline"></span>
-      </button>
-      <form class="form form-signup">
-        <fieldset>
-          <legend>Please, enter your email, password and password confirmation for sign up.</legend>
-          <div class="input-block">
-            <label for="signup-email">E-mail</label>
-            <input id="signup-email" type="email" required/>
-          </div>
-          <div class="input-block">
-            <label for="signup-password">Password</label>
-            <input id="signup-password" type="password" required/>
-          </div>
-          <div class="input-block">
-            <label for="signup-password-confirm">Confirm password</label>
-            <input id="signup-password-confirm" type="password" required/>
-          </div>
-        </fieldset>
-        <button type="submit" class="btn-signup">Continue</button>
-      </form>
-    </div>
-  </div>
-</section>
+<div className="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true"/>
+
+		<Signup addUsers={addUsers}/>
+
+			<div className="login">
+				<form onSubmit={handleSubmitLogIn}>
+					<label htmlFor="chk" aria-hidden="true">Login</label>
+					<Google />
+					<h2>OR</h2>
+					<input type="username" id="usernameToLogIn" name="username" placeholder="User Name" required="" value={formState.usernameToLogIn} onChange={handleChange}/>
+
+					<input type="password" id="passwordToLogIn" name="pswd" placeholder="Password" required="" value={formState.passwordToLogIn} onChange={handleChange}/>
+					<button className='login-button'>Login</button>
+				</form>
+			</div>
+	</div>
+
 
     </div>
     );
