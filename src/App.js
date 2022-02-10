@@ -13,8 +13,14 @@ import Chat from './Components/Chat/Chat';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Recipe from './Components/Recipe/Recipe';
+import { useState } from 'react';
+import User from './Components/User'
 
-function App({postData}) {
+function App({postData, userData}) {
+
+  const [user, setUser] = useState()
+  // below code is for testing
+  let tempUser = userData[0]
   return (
     <div className="App">
       <Nav/>
@@ -24,9 +30,10 @@ function App({postData}) {
           <Route path='/save' element={<SaveDishes/>}/>
           <Route path='/feed' element={<Feed/>}/>
           <Route path='/chat' element={<Chat/>}/>
-          <Route path='/login' element={<Login/>}/>
+          <Route path='/login' element={<Login setUser={setUser}/>}/>
         </Routes>
       <Header />
+      <User user={tempUser}/>
       <Posts postData={postData}/>
       <Recipe/>
     </div>
