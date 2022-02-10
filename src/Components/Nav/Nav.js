@@ -7,9 +7,18 @@ const Nav = () => {
   return (
     
       <nav>
-        <Link to='/'>
-          <img className='logonav' src='/image/logo.png' alt='logo'/>
-        </Link>
+        
+           <Link to='/'>
+              <img className='logonav' src='/image/logo.png' alt='logo'/>
+           </Link>
+        
+
+  {/* /////////////Seach bar////////////////// */}
+
+            <input className="search__input" type="text" placeholder="Search"/>
+
+   {/* ////////////////////////////////////////// */}
+
 
             <ul>
               <li>
@@ -45,6 +54,11 @@ const Nav = () => {
                 <Link to='/login'>
                   <img className='icon' src='/image/icon_login.png' alt='login'/> 
                 </Link>
+
+                {/* <Link to='/profile'>
+                  <img src='' alt='profile avatar'/> <p>by user.name</p>
+                </Link> */}
+                
               </li>
             </ul>    
       </nav>

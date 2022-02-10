@@ -12,6 +12,7 @@ import Feed from './Components/Feed/Feed';
 import Chat from './Components/Chat/Chat';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
+import Recipe from './Components/Recipe/Recipe';
 
 function App({postData}) {
   return (
@@ -27,6 +28,7 @@ function App({postData}) {
         </Routes>
       <Header />
       <Posts postData={postData}/>
+      <Recipe/>
     </div>
   );
 }
