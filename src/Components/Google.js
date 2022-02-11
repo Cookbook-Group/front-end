@@ -34,7 +34,7 @@ const Google = () => {
     }
 
   return (
-    <div>
+    <div className='google'>
         <GoogleButton onClick={redierctToGoogle}/>
     </div>
   )

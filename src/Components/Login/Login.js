@@ -7,6 +7,7 @@ import Signup from '../Signup/Signup';
 
 const Login = ({setUser}) => {
   const [users, setUsers] = useState([])
+  const [message,setMessage] = useState('')
   
   let getUsers = async () => {
 	  let data = await fetch('http://localhost:4004/users')
@@ -34,7 +35,13 @@ const Login = ({setUser}) => {
 
   const handleSubmitLogIn = async (e) =>{
 	e.preventDefault()
-	alert(`Welcome back ${formState.usernameToLogIn}! Enjoy the Recipies!`)
+	// alert(`Welcome back ${formState.usernameToLogIn}! Enjoy the Recipies!`)
+	if (formState.passwordToLogIn === users.password) {
+		setMessage(`Welcome back ${formState.usernameToLogIn}! Enjoy the Recipies!`)
+	} else {
+		setMessage('Wrong Username or Password')
+	}
+	setFormState(initialState)
 	let data = await fetch(`http://localhost:4004/users/login`,{
 		method: 'POST',
 		body: JSON.stringify({
@@ -47,7 +54,6 @@ const Login = ({setUser}) => {
 	})
 	let userData = await data.json()
 	setUser(userData)
-	setFormState(initialState)
 }
 
 
@@ -62,8 +68,9 @@ const Login = ({setUser}) => {
 			<div className="login">
 				<form onSubmit={handleSubmitLogIn}>
 					<label htmlFor="chk" aria-hidden="true">Login</label>
+					<p className='spaceLogin'>{message}</p>
 					<Google />
-					<h2>OR</h2>
+					<h2 className='or'>OR</h2>
 					<input type="username" id="usernameToLogIn" name="username" placeholder="User Name" required="" value={formState.usernameToLogIn} onChange={handleChange}/>
 
 					<input type="password" id="passwordToLogIn" name="pswd" placeholder="Password" required="" value={formState.passwordToLogIn} onChange={handleChange}/>
