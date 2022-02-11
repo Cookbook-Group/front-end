@@ -91,3 +91,32 @@ button:hover{
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 }
+
+.spaceSignup {
+	margin-bottom: 10px;
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 19px;
+}
+
+.topSignup {
+	margin-bottom: 25px;
+	margin-top: 30px;
+}
+
+.google {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.or {
+	color: white;
+	text-shadow: 2px 2px rgb(230, 170, 43);
+	font-size: 20px;
+}
+
+.spaceLogin {
+	margin-bottom: 18px;
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 19px;
+}

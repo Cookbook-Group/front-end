@@ -20,10 +20,11 @@ const Signup = ({addUsers}) => {
 	const handleSubmitSignUp = async (e) =>{
 		e.preventDefault()
         if (signupForm.password === signupForm.verifyPassword) { 
-            setMessage(`${signupForm.username} Welcome to Social-Meal-Dia! `)
+            setMessage(`Welcome ${signupForm.username}  `)
 	    }else{
             setMessage(`Passwords don't match!`)
 	    }
+        setSignupForm(signup)
         let res = await fetch (`http://localhost:4004/users/signup`, {
             method: 'POST',
             body: JSON.stringify({
@@ -38,14 +39,13 @@ const Signup = ({addUsers}) => {
         })
         let userData = await res.json()
             addUsers(userData)
-        setSignupForm(signup)
 	}
 
   return (
     <div className="signup">
 				<form onSubmit={handleSubmitSignUp}>
-					<label htmlFor="chk" aria-hidden="true">Sign up</label>
-                    <p>{message}</p>
+					<label className='topSignup' htmlFor="chk" aria-hidden="true">Sign up</label>
+                    <p className='spaceSignup'>{message}</p>
 					<input type="text" id="username" name="txt" placeholder="Username" required="" value={signupForm.username} onChange={handleChange}/>
 					<input type="email" id="email" name="email" placeholder="Email" required="" value={signupForm.email} onChange={handleChange} />
 
