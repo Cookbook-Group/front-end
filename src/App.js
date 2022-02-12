@@ -5,6 +5,8 @@ import {Route, Routes, Link} from 'react-router-dom'
 import Nav from './Components/Nav/Nav';
 import New from './Components/New/New';
 
+import axios from 'axios'
+
 // import { Route,Routes,Link } from 'react-router-dom';
 import Posts from './Components/Posts';
 import SaveDishes from './Components/SaveDishes/SaveDishes';
@@ -13,17 +15,34 @@ import Chat from './Components/Chat/Chat';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Recipe from './Components/Recipe/Recipe';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import User from './Components/User'
 import ProtectedRoutes from './Components/ProtectedRoutes';
+import { getDefaultNormalizer } from '@testing-library/dom'
+
+console.log(process.env.REACT_APP_backendURI)
 
 function App({postData, userData}) {
 
+  const [posts, setPosts] = useState([])
   const [user, setUser] = useState()
   const [message,setMessage] = useState('')
   // const [isLogin, setIsLogin] = useState(false)
 
 
+   function getData() {
+    axios.get(`${process.env.REACT_APP_backendURI}posts`)
+    .then(res => {
+      setPosts(res.data)
+    })
+  } 
+
+  useEffect(() => {
+    getData()
+    },[]) 
+
+    console.log(posts)
+ 
   const login = (user) => {
     if (user && user.username !== undefined) {
       console.log('login')
@@ -61,7 +80,7 @@ function App({postData, userData}) {
         </Routes>
       <Header />
       <User user={tempUser}/>
-      <Posts postData={postData}/>
+      <Posts postData={posts}/>
       <Recipe/>
     </div>
   );
