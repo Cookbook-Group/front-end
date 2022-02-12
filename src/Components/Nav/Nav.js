@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import User from '../User';
 import './Nav.css'
 
 
-const Nav = () => {
+const Nav = ({user}) => {
   return (
     
       <nav>
@@ -11,6 +12,8 @@ const Nav = () => {
            <Link to='/'>
               <img className='logonav' src='/image/logo.png' alt='logo'/>
            </Link>
+
+           <h1 style={{color:'black'}}>{user && user.username !== undefined ? `welcome ${user.username}` : null }</h1>
         
 
   {/* /////////////Seach bar////////////////// */}
