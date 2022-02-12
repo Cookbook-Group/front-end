@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Recipe = () => {
+const Recipe = (props) => {
   return (
     <div>
         <div className="card">
         <button>X</button>
-        <img src= '{user.post.image}' alt='post image'/>
-        <h3>post.name</h3>
-        <p>post.comments</p>
-        <p>post.recipe</p>
-        <p>likes/ratings</p>
+        <img src= {props.image} alt='post image'/>
+        <h3>{props.name}</h3>
+        <p>{props.comments}</p>
+        <p>{props.recipe}</p>
+        <p>{props.likes}</p>
         </div>
     </div>
   )
