@@ -40,8 +40,6 @@ function App({postData, userData}) {
   useEffect(() => {
     getData()
     },[]) 
-
-    console.log(posts)
  
   const login = (user) => {
     if (user && user.username !== undefined) {
