@@ -25,7 +25,7 @@ const Signup = ({addUsers}) => {
             setMessage(`Passwords don't match!`)
 	    }
         setSignupForm(signup)
-        let res = await fetch (`http://localhost:4004/users/signup`, {
+        let res = await fetch (`${process.env.REACT_APP_backendURI}users/signup`, {
             method: 'POST',
             body: JSON.stringify({
                 username: signupForm.username,

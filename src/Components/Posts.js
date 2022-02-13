@@ -1,9 +1,9 @@
 import React from 'react';
 import PostsList from './PostsList';
 
-const Posts = ({postData}) => {
+const Posts = ({postData,user}) => {
   return <div>Posts
-    <PostsList postData={postData}/>
+    <PostsList postData={postData} user={user}/>
 
   </div>;
 };
