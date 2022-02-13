@@ -69,7 +69,7 @@ function App({postData, userData}) {
  {/* <button onClick={logout}>logout</button>  */}
       <Nav user={user} />
         <Routes>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/' element={<Home posts={posts} user={user}/>}/>
           <Route element={<ProtectedRoutes/>}>
           <Route path='/new' element={<New/>}/>
           <Route path='/save' element={<SaveDishes/>}/>
@@ -81,7 +81,7 @@ function App({postData, userData}) {
       {/* <Header />
       <User user={tempUser}/>
       <Posts postData={posts}/>
-      <Recipe/>
+      <Recipe/> */}
     </div>
   );
 }
