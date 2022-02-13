@@ -34,7 +34,7 @@ const Login = ({setUser,login,message}) => {
 
   const handleSubmitLogIn = async (e) =>{
 	e.preventDefault()
-	let data = await fetch(`http://localhost:4004/users/login`,{
+	let data = await fetch(`${process.env.REACT_APP_backendURI}users/login`,{
 		method: 'POST',
 		body: JSON.stringify({
 			username: formState.usernameToLogIn,
