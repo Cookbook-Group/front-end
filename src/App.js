@@ -17,10 +17,12 @@ import Login from './Components/Login/Login';
 import Recipe from './Components/Recipe/Recipe';
 import { useEffect, useState } from 'react';
 import User from './Components/User'
+import NewForm from './Components/NewForm/NewForm';
 import ProtectedRoutes from './Components/ProtectedRoutes';
 import { getDefaultNormalizer } from '@testing-library/dom'
 
 console.log(process.env.REACT_APP_backendURI)
+
 
 function App({postData, userData}) {
 
@@ -76,7 +78,7 @@ function App({postData, userData}) {
           </Route>
           <Route path='/login' element={<Login setUser={setUser} login={login} message={message}/>}/>
         </Routes>
-      <Header />
+      {/* <Header />
       <User user={tempUser}/>
       <Posts postData={posts}/>
       <Recipe/>
