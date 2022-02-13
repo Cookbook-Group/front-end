@@ -61,6 +61,10 @@ function App({postData, userData}) {
   //   console.log(setUser)
   // }
 
+  let addPost = (post)=>{
+    setPosts([...posts,post])
+  }
+
   
   // below code is for testing
   let tempUser = userData[0]
@@ -71,7 +75,7 @@ function App({postData, userData}) {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route element={<ProtectedRoutes/>}>
-          <Route path='/new' element={<New/>}/>
+          <Route path='/new' element={<New addPost={addPost}/>}/>
           <Route path='/save' element={<SaveDishes/>}/>
           <Route path='/feed' element={<Feed/>}/>
           <Route path='/chat' element={<Chat/>}/>

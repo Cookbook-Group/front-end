@@ -22,9 +22,10 @@ const NewForm = ({addPost}) => {
 
   let handleSubmit = async (e)=>{
     e.preventDefault()
-    let response = await fetch(`${process.env.REACT_APP_backendURI}/:id/posts`,{
+    let response = await fetch(`${process.env.REACT_APP_backendURI}/posts`,{
       method: 'POST',
       body: JSON.stringify({
+          userId: newForm.user,
           image: newForm.image,
           title: newForm.title,
           calories: newForm.calories,

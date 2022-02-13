@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchForm from '../SearchForm/SearchForm';
 import User from '../User';
 import './Nav.css'
 
@@ -13,15 +14,11 @@ const Nav = ({user}) => {
               <img className='logonav' src='/image/logo.png' alt='logo'/>
            </Link>
 
+           <SearchForm/>
+
            <h1 style={{color:'black'}}>{user && user.username !== undefined ? `welcome ${user.username}` : null }</h1>
-        
 
-  {/* /////////////Seach bar////////////////// */}
-
-            <input className="search__input" type="text" placeholder="Search"/>
-
-   {/* ////////////////////////////////////////// */}
-
+            
 
             <ul>
               <li>
