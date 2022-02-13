@@ -45,8 +45,8 @@ const NewForm = ({addPost}) => {
 }
 
   return (
-    <form onSubmit={handleSubmit}>
-<div className="share">
+<form onSubmit={handleSubmit}>
+  <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
           <img className="shareProfileImg" src="" alt="" />
@@ -56,8 +56,6 @@ const NewForm = ({addPost}) => {
             type="button"
             onClick={togglePopup}
           />
-
-
       </div>
 
         <hr className="shareHr"/>
@@ -94,7 +92,7 @@ const NewForm = ({addPost}) => {
                 <div className="shareOption">
                   <img 
                     className="shareIcon" 
-                    src='/image/icon_recipies.png' 
+                    src='/image/icon_recipes.png' 
                     alt='icon'
                     onClick={togglePopup}/>
                     <span className="shareOptionText" onClick={togglePopup}>Recipies</span>
@@ -106,6 +104,7 @@ const NewForm = ({addPost}) => {
       </div>
     </div>
 
+{/* /////////////////////////////////// Pop Up info//////////////////////////////////// */}
     {isOpen && <Popup
             content={<>
                 <b>Add Your Post</b>
@@ -146,7 +145,7 @@ const NewForm = ({addPost}) => {
                       </div>
                     
                       <div className="shareOption">
-                          <img className="shareIcon" src='/image/icon_recipies.png' alt='icon'/>
+                          <img className="shareIcon" src='/image/icon_recipes.png' alt='icon'/>
                           <input className="shareInput" placeholder ="Add Recipies" 
                           onChange ={handleChange} 
                           value={newForm.recipies}/>
@@ -155,8 +154,7 @@ const NewForm = ({addPost}) => {
                   </div>
                   {/* <input className="shareButton" type="submit" value='POST' /> */}
                   <button type='submit' className="shareButton">POST</button>
-        </div>
-                {/* <button className="shareButton" >POST</button> */}
+              </div>
             </>}
           handleClose={togglePopup}
            />} 
