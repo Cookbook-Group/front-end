@@ -5,9 +5,8 @@ import Google from '../Google';
 import Signup from '../Signup/Signup';
 
 
-const Login = ({setUser}) => {
+const Login = ({setUser,login,message}) => {
   const [users, setUsers] = useState([])
-  const [message,setMessage] = useState('')
   
   let getUsers = async () => {
 	  let data = await fetch('http://localhost:4004/users')
@@ -35,13 +34,6 @@ const Login = ({setUser}) => {
 
   const handleSubmitLogIn = async (e) =>{
 	e.preventDefault()
-	// alert(`Welcome back ${formState.usernameToLogIn}! Enjoy the Recipies!`)
-	if (formState.passwordToLogIn === users.password) {
-		setMessage(`Welcome back ${formState.usernameToLogIn}! Enjoy the Recipies!`)
-	} else {
-		setMessage('Wrong Username or Password')
-	}
-	setFormState(initialState)
 	let data = await fetch(`http://localhost:4004/users/login`,{
 		method: 'POST',
 		body: JSON.stringify({
@@ -54,6 +46,9 @@ const Login = ({setUser}) => {
 	})
 	let userData = await data.json()
 	setUser(userData)
+	login(userData)
+	setFormState(initialState)
+	
 }
 
 
