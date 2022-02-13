@@ -78,10 +78,10 @@ function App({postData, userData}) {
           </Route>
           <Route path='/login' element={<Login setUser={setUser} login={login} message={message}/>}/>
         </Routes>
-      {/* <Header />
-      <User user={tempUser}/>
-      <Posts postData={posts}/>
-      <Recipe/>
+       {/* <Header /> */}
+      {/* <User user={tempUser}/> */}
+      {/* <Posts postData={posts}/> */}
+      {/* <Recipe/> */}
     </div>
   );
 }
