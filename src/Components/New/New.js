@@ -1,8 +1,9 @@
 import React from 'react';
+import NewForm from '../NewForm/NewForm';
 
 const New = () => {
   return <div>
-      <h1>New</h1>
+   <NewForm/>
   </div>;
 };
 

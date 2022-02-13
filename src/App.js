@@ -15,6 +15,7 @@ import Login from './Components/Login/Login';
 import Recipe from './Components/Recipe/Recipe';
 import { useState } from 'react';
 import User from './Components/User'
+import NewForm from './Components/NewForm/NewForm';
 
 function App({postData, userData}) {
 
@@ -32,10 +33,10 @@ function App({postData, userData}) {
           <Route path='/chat' element={<Chat/>}/>
           <Route path='/login' element={<Login setUser={setUser}/>}/>
         </Routes>
-      <Header />
+      {/* <Header />
       <User user={tempUser}/>
       <Posts postData={postData}/>
-      <Recipe/>
+    */}
     </div>
   );
 }
