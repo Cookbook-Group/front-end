@@ -3,10 +3,8 @@ import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import axios from "axios"
 
-const User = ({ setFoundUser, foundUser, users }) => {
+const User = ({ setFoundUser, foundUser }) => {
   const params = useParams()
-  console.log(params.userId)
-  console.log(`${process.env.REACT_APP_backendURI}users/${params.userId}`)
   
   function getUser() {
     axios.get(`${process.env.REACT_APP_backendURI}users/${params.userId}`)
@@ -16,22 +14,17 @@ const User = ({ setFoundUser, foundUser, users }) => {
     })
   }
 
-  useEffect((getUser) => {
+  console.log(foundUser)
+
+ useEffect(() => {
     getUser()
   }, [])
-
- console.log(foundUser)
-
-  return (
+ 
+ return (
     <div>
       <header>
-        <img src="" alt="" />
-        <h4>{foundUser.username}</h4>
-        {/* Below code only lists the number of posts, mapping the data is found lower */}
-        <p>{foundUser.posts} posts</p>
-        <p>{foundUser.followers} followers</p>
-        <p>{foundUser.following} following</p>
-        <hr></hr>
+      <h3>USERNAME </h3>
+
       </header>
 
       {/* {user.posts.map((post) => {
