@@ -73,10 +73,11 @@ function App({ postData, userData }) {
     <div className="App">
       {/* <button onClick={logout}>logout</button>  */}
       <Nav user={user} />
+      <Link to="/user/62095837891225a64c8e75a4">Nick's User Testing Link</Link>
       <Routes>
         <Route path="/" element={<Home posts={posts} user={user} />} />
         <Route element={<ProtectedRoutes />}>
-          <Route path="/new" element={<New />} />
+          <Route path="/new" element={<New addPost={addPost} user={user}/>} />
           <Route path="/save" element={<SaveDishes />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/chat" element={<Chat />} />
