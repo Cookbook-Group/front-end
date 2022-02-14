@@ -4,7 +4,6 @@ import Header from "./Components/Header"
 import { Route, Routes, Link } from "react-router-dom"
 import Nav from "./Components/Nav/Nav"
 import New from "./Components/New/New"
-
 import axios from "axios"
 
 // import { Route,Routes,Link } from 'react-router-dom';
@@ -100,6 +99,7 @@ function App({ postData, userData }) {
       <User user={tempUser}/>
       <Posts postData={posts}/>
       <Recipe/> */}
+
     </div>
   )
 }

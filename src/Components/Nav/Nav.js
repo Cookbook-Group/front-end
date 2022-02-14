@@ -1,24 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SearchForm from '../SearchForm/SearchForm';
-import User from '../User';
 import './Nav.css'
 
 
-const Nav = ({user}) => {
+const Nav = () => {
   return (
     
       <nav>
-        
-           <Link to='/'>
-              <img className='logonav' src='/image/logo.png' alt='logo'/>
-           </Link>
-
-           <SearchForm/>
-
-           <h1 style={{color:'black'}}>{user && user.username !== undefined ? `welcome ${user.username}` : null }</h1>
-
-            
+        <Link to='/'>
+          <img className='logo' src='/image/logo.png' alt='logo'/>
+        </Link>
 
             <ul>
               <li>
@@ -51,16 +42,22 @@ const Nav = ({user}) => {
                 </Link>
               </li>
               <li>  
-                <Link to='/login'>
-                  <img className='icon' src='/image/icon_login.png' alt='login'/> 
-                </Link>
-
-                {/* <Link to='/profile'>
-                  <img src='' alt='profile avatar'/> <p>by user.name</p>
-                </Link> */}
-                
+              <button>
+                  <Link to='/login'>
+                    Log In
+                  </Link>
+              </button>
               </li>
-            </ul>    
+              <li>
+              <button>
+                  <Link to='/singup'>
+                    Sing Up
+                  </Link>
+              </button>
+              </li>
+            </ul>
+         
+       
       </nav>
     
   );

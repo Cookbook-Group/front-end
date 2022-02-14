@@ -1,13 +1,13 @@
 import React from 'react';
-import Post from './post/Post';
+import Post from './Post';
 
-const PostsList = ({postData,user}) => {
+const PostsList = ({postData}) => {
 
 
   return <div>PostsList
       {postData.map((post) =>{
         
-         return <Post post={post} user={user} key={post.name}/>
+         return <Post post={post} key={post.name}/>
       })}
       
   </div>;
