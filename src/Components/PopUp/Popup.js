@@ -1,4 +1,5 @@
 import React from 'react'
+import './Popup.css'
 
 const Popup = ({content, handleClose}) => {
   return (

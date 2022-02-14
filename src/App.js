@@ -60,6 +60,15 @@ function App({ postData, userData }) {
   //   console.log(setUser)
   // }
 
+
+  let addPost = (post)=>{
+    setPosts([...posts,post])
+  }
+
+  
+  // below code is for testing
+  let tempUser = userData[0]
+
   return (
     <div className="App">
       {/* <button onClick={logout}>logout</button>  */}

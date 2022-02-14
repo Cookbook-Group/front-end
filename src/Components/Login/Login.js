@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import './Login.css'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import Google from '../Google';
 import Signup from '../Signup/Signup';
 
 
 const Login = ({setUser,login,message}) => {
   const [users, setUsers] = useState([])
+  const navigate = useNavigate()
   
   let getUsers = async () => {
 	  let data = await fetch('http://localhost:4004/users')
@@ -61,7 +63,7 @@ const Login = ({setUser,login,message}) => {
 		<Signup addUsers={addUsers}/>
 
 			<div className="login">
-				<form onSubmit={handleSubmitLogIn}>
+				<form onSubmit={handleSubmitLogIn} afterSubmit={() => navigate('/')}>
 					<label htmlFor="chk" aria-hidden="true">Login</label>
 					<p className='spaceLogin'>{message}</p>
 					<Google />
