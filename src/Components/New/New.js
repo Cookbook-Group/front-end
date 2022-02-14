@@ -1,9 +1,8 @@
 import React from 'react';
-import NewForm from '../NewForm/NewForm';
 
-const New = ({addPost, user}) => {
+const New = () => {
   return <div>
-   <NewForm addPost={addPost} user={user}/>
+      <h1>New</h1>
   </div>;
 };
 
