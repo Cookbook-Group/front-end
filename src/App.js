@@ -76,7 +76,7 @@ function App({ postData, userData }) {
       <Routes>
         <Route path="/" element={<Home posts={posts} user={user} />} />
         <Route element={<ProtectedRoutes />}>
-          <Route path="/new" element={<New />} />
+          <Route path="/new" element={<New addPost={addPost} user={user}/>} />
           <Route path="/save" element={<SaveDishes />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/chat" element={<Chat />} />
