@@ -71,21 +71,33 @@ function App({ postData, userData }) {
     <div className="App">
       {/* <button onClick={logout}>logout</button>  */}
       <Nav user={user} />
-        <Routes>
-          <Route path='/' element={<Home posts={posts} user={user}/>}/>
-          <Route element={<ProtectedRoutes/>}>
-          <Route path='/new' element={<New addPost={addPost} user={user}/>}/>
-          <Route path='/save' element={<SaveDishes/>}/>
-          <Route path='/feed' element={<Feed/>}/>
-          <Route path='/chat' element={<Chat/>}/>
-          </Route>
-          <Route path='/login' element={<Login setUser={setUser} login={login} message={message}/>}/>
-        </Routes>
-
-       {/* <Header /> */}
-      {/* <User user={tempUser}/> */}
-      {/* <Posts postData={posts}/> */}
-      {/* <Recipe/> */}
+      <Routes>
+        <Route path="/" element={<Home posts={posts} user={user} />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/new" element={<New addPost={addPost} user={user}/>} />
+          <Route path="/save" element={<SaveDishes />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/chat" element={<Chat />} />
+        </Route>
+        <Route
+          path="/login"
+          element={<Login setUser={setUser} login={login} message={message} />}
+        />
+        <Route
+          path="/user/:userId"
+          element={
+            <User
+              setFoundUser={setFoundUser}
+              foundUser={foundUser}
+              users={users}
+            />
+          }
+        />
+      </Routes>
+      {/* <Header />
+      <User user={tempUser}/>
+      <Posts postData={posts}/>
+      <Recipe/> */}
     </div>
   )
 }
