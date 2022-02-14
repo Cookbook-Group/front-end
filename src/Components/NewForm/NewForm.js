@@ -121,7 +121,7 @@ const NewForm = ({addPost,user}) => {
 {/* /////////////////////////////////// Pop Up info//////////////////////////////////// */}
     {isOpen && <Popup 
             content={<>
-                <b>Add Your Post</b>
+                <b>Add Your Post here</b>
                 <hr className="shareHr"/>
                 <div className="shareTop">
                   <img className="shareProfileImg" src="" alt="" />
