@@ -19,6 +19,7 @@ import { useEffect, useState } from "react"
 import User from "./Components/User"
 import NewForm from "./Components/NewForm/NewForm"
 import { getDefaultNormalizer } from "@testing-library/dom"
+import Edit from "./Components/Edit/Edit"
 
 function App({ postData, userData }) {
   const [posts, setPosts] = useState([])
@@ -39,7 +40,7 @@ function App({ postData, userData }) {
 
   useEffect(() => {
     getData()
-  },[posts])
+  },[])
 
   const login = (user) => {
     if (user && user.username !== undefined) {
@@ -64,9 +65,7 @@ function App({ postData, userData }) {
     setPosts([...posts,post])
   }
 
-  
-  // below code is for testing
-  let tempUser = userData[0]
+
 
   return (
     <div className="App">
@@ -82,6 +81,7 @@ function App({ postData, userData }) {
           path="/login"
           element={user ? <Navigate to="/" /> : <Login setUser={setUser} login={login} message={message}/>}
         />
+        <Route path="/feed/:id/edit" element={<Edit />} />
         <Route
           path="/user/:userId"
           element={

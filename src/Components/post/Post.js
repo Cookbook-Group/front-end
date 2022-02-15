@@ -84,6 +84,7 @@ const Post = ({post,user,likeHandler,like, setPosts}) => {
             <span className="postUsername">{user.username}</span>
             <span className="postDate">{format(post.createdAt)}</span>
             <button onClick={() => deletePost(post)}>Delete</button>
+            <Link to={{pathname: `posts/${post._id}/edit`}}>Edit</Link>
           </div>
           <div className="postTopRight">
           </div>
