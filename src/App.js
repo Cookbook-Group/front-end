@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import "./App.css"
 import Header from "./Components/Header"
-import { Route, Routes, Link } from "react-router-dom"
+import { Route, Routes, Link, Navigate } from "react-router-dom"
 import Nav from "./Components/Nav/Nav"
 import New from "./Components/New/New"
 
@@ -18,7 +18,6 @@ import Recipe from "./Components/Recipe/Recipe"
 import { useEffect, useState } from "react"
 import User from "./Components/User"
 import NewForm from "./Components/NewForm/NewForm"
-import ProtectedRoutes from "./Components/ProtectedRoutes"
 import { getDefaultNormalizer } from "@testing-library/dom"
 
 function App({ postData, userData }) {
@@ -40,7 +39,7 @@ function App({ postData, userData }) {
 
   useEffect(() => {
     getData()
-  }, [])
+  },[posts])
 
   const login = (user) => {
     if (user && user.username !== undefined) {
@@ -72,16 +71,14 @@ function App({ postData, userData }) {
       {/* <button onClick={logout}>logout</button>  */}
       <Nav user={user} />
       <Routes>
-        <Route path="/" element={<Home posts={posts} user={user} />} />
-        <Route element={<ProtectedRoutes />}>
-          <Route path="/new" element={<New addPost={addPost} user={user}/>} />
-          <Route path="/save" element={<SaveDishes />} />
-          <Route path="/feed" element={<Feed />} />
-          <Route path="/chat" element={<Chat />} />
-        </Route>
+        <Route path="/" element={user ? <Home posts={posts} user={user} addPost={addPost} setPosts={setPosts}/>: <Navigate to='/login' />}  />
+          <Route path="/new" element={user ? <New addPost={addPost} user={user}/> : <Navigate to='/login' />} />
+          <Route path="/save" element={ user? <SaveDishes />: <Navigate to='/login' />}  />
+          <Route path="/feed/:id" element={user ? <Feed post={posts} user={user}/>: <Navigate to='/login' />}  />
+          <Route path="/chat" element={user ? <Chat />: <Navigate to='/login' />}  />
         <Route
           path="/login"
-          element={<Login setUser={setUser} login={login} message={message} />}
+          element={user ? <Navigate to="/" /> : <Login setUser={setUser} login={login} message={message}/>}
         />
         <Route
           path="/user/:userId"
