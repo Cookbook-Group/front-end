@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './NewForm.css'
 // import Popup from './Popup';
 import Popup from '../PopUp/Popup'
+import { Navigate } from 'react-router-dom'
 
 const NewForm = ({addPost,user}) => {
   const form = {
@@ -42,6 +43,7 @@ const NewForm = ({addPost,user}) => {
     console.log(response)
     addPost(post)
     setNewForm('')
+    togglePopup()
   }
 
   let handleChange = (e) =>{
@@ -51,7 +53,7 @@ const NewForm = ({addPost,user}) => {
 }
 
   return (
-<form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit} >
   <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
@@ -169,13 +171,12 @@ const NewForm = ({addPost,user}) => {
                       </div>
                      
                   </div>
-                  <input className="shareButton" type="submit" value='POST' />
+                  <input className="shareButton" type="submit" value='POST'  />
                   {/* <button type='submit' className="shareButton">POST</button> */}
               </div>
             </>}
           handleClose={togglePopup}
            />} 
-
   </form>
   )
 }

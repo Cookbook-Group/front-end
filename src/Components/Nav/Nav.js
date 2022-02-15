@@ -34,7 +34,7 @@ const Nav = ({user}) => {
               </li>
 
               <li>
-                <Link to='/feed'>
+                <Link to='/feed/:id'>
                   <img className='icon' src='/image/icon_heart.png' alt='heart'/>
                 </Link>
               </li>
