@@ -43,6 +43,7 @@ const NewForm = ({addPost,user}) => {
     console.log(response)
     addPost(post)
     setNewForm('')
+    togglePopup()
   }
 
   let handleChange = (e) =>{
@@ -170,7 +171,7 @@ const NewForm = ({addPost,user}) => {
                       </div>
                      
                   </div>
-                  <input className="shareButton" type="submit" value='POST' />
+                  <input className="shareButton" type="submit" value='POST'  />
                   {/* <button type='submit' className="shareButton">POST</button> */}
               </div>
             </>}

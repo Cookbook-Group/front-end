@@ -39,7 +39,7 @@ function App({ postData, userData }) {
 
   useEffect(() => {
     getData()
-  },[posts])
+  },[])
 
   const login = (user) => {
     if (user && user.username !== undefined) {
@@ -71,7 +71,7 @@ function App({ postData, userData }) {
       {/* <button onClick={logout}>logout</button>  */}
       <Nav user={user} />
       <Routes>
-        <Route path="/" element={user ? <Home posts={posts} user={user} addPost={addPost} setPosts={setPosts}/>: <Navigate to='/login' />}  />
+        <Route path="/" element={user ? <Home posts={posts} user={user} addPost={addPost} setPosts={setPosts} getData={getData}/>: <Navigate to='/login' />}  />
           <Route path="/new" element={user ? <New addPost={addPost} user={user}/> : <Navigate to='/login' />} />
           <Route path="/save" element={ user? <SaveDishes />: <Navigate to='/login' />}  />
           <Route path="/feed/:id" element={user ? <Feed post={posts} user={user}/>: <Navigate to='/login' />}  />
