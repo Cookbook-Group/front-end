@@ -14,7 +14,7 @@ const Nav = ({user}) => {
               <img className='logonav' src='/image/logo.png' alt='logo'/>
            </Link>
 
-           <SearchForm/>
+           {/* <SearchForm/> */}
 
            <h1 style={{color:'black'}}>{user && user.username !== undefined ? `welcome ${user.username}` : null }</h1>
 
