@@ -8,6 +8,7 @@ import New from "./Components/New/New"
 import axios from "axios"
 
 // import { Route,Routes,Link } from 'react-router-dom';
+
 import Posts from "./Components/Posts"
 import SaveDishes from "./Components/SaveDishes/SaveDishes"
 import Feed from "./Components/Feed/Feed"
@@ -19,6 +20,9 @@ import { useEffect, useState } from "react"
 import User from "./Components/User"
 import NewForm from "./Components/NewForm/NewForm"
 import { getDefaultNormalizer } from "@testing-library/dom"
+import Uploads from './Components/Uploads/Uploads';
+import UploadHome from './Components/Uploads/UploadHome'
+
 
 import Edit from "./Components/Edit/Edit"
 
@@ -89,6 +93,8 @@ function App({ postData, userData }) {
           path="/login"
           element={user ? <Navigate to={`/feed/${user._id}`}/> : <Login setUser={setUser} login={login} message={message}/>}
         />
+         <Route path='/uploads' element={<Uploads />}/>
+          <Route path='/uploadHome' element={<UploadHome />}/>
 
         <Route path="/posts/:id/edit" element={<Edit />} />
         <Route
@@ -106,6 +112,7 @@ function App({ postData, userData }) {
       <User user={tempUser}/>
       <Posts postData={posts}/>
       <Recipe/> */}
+
     </div>
   )
 }
