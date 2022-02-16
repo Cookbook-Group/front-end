@@ -3,7 +3,11 @@ import { useState,useEffect } from 'react/cjs/react.development';
 import Post from '../post/Post';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+
 import './Feed.css'
+
+import UserRecipes from '../UserRecipes/UserRecipes';
+
 
 const Feed = ({post,user,likeHandler,like}) => {
   
@@ -93,9 +97,13 @@ const Feed = ({post,user,likeHandler,like}) => {
           </div>
           <div className="profileRightBottom">
         <Post post={post} user={user} />
+
           </div>
         </div>
       </div>
+
+        <UserRecipes posts={post} user={user}/>
+
     </div>
   );
 };

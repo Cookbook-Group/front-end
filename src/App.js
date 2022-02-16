@@ -20,6 +20,9 @@ import User from "./Components/User"
 import NewForm from "./Components/NewForm/NewForm"
 import { getDefaultNormalizer } from "@testing-library/dom"
 
+import Edit from "./Components/Edit/Edit"
+
+
 function App({ postData, userData }) {
   const [posts, setPosts] = useState([])
   const [user, setUser] = useState()
@@ -59,19 +62,21 @@ function App({ postData, userData }) {
   //   console.log(setUser)
   // }
 
+
   let addPost = (post)=>{
     setPosts([...posts,post])
   }
 
-  
-  // below code is for testing
-  let tempUser = userData[0]
+
+
   return (
     <div className="App">
       {/* <button onClick={logout}>logout</button>  */}
       <Nav user={user} />
       <Routes>
+
         <Route path="/" element={user ? <Home posts={posts} user={user} addPost={addPost} setPosts={setPosts} getData={getData}/>: <Navigate to='/login' />}  />
+
           <Route path="/new" element={user ? <New addPost={addPost} user={user}/> : <Navigate to='/login' />} />
           <Route path="/save" element={ user? <SaveDishes />: <Navigate to='/login' />}  />
           <Route path="/feed/:id" element={user ? <Feed post={posts} user={user}/>: <Navigate to='/login' />}  />
@@ -80,6 +85,8 @@ function App({ postData, userData }) {
           path="/login"
           element={user ? <Navigate to={`/feed/${user._id}`}/> : <Login setUser={setUser} login={login} message={message}/>}
         />
+
+        <Route path="/feed/:id/edit" element={<Edit />} />
         <Route
           path="/user/:userId"
           element={
