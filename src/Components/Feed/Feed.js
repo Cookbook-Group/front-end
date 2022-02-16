@@ -3,6 +3,7 @@ import { useState,useEffect } from 'react/cjs/react.development';
 import Post from '../post/Post';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import UserRecipes from '../UserRecipes/UserRecipes';
 
 const Feed = ({post,user,likeHandler,like}) => {
   
@@ -67,6 +68,7 @@ const Feed = ({post,user,likeHandler,like}) => {
         <h1>Feed</h1>
        <h1>{currentUser? currentUser.username : null}</h1>
         <Post post={post} user={user} />
+        <UserRecipes posts={post} user={user}/>
     </div>
   );
 };

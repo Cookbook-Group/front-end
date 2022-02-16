@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './NewForm.css'
-// import Popup from './Popup';
 import Popup from '../PopUp/Popup'
 import { Navigate } from 'react-router-dom'
 
