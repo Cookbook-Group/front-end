@@ -3,33 +3,38 @@ import { useState,useEffect } from 'react/cjs/react.development';
 import Post from '../post/Post';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+
+import './Feed.css'
+
 import UserRecipes from '../UserRecipes/UserRecipes';
+
 
 const Feed = ({post,user,likeHandler,like}) => {
   
-  const [currentUser, setCurrentUser] = useState()
-  // const [currentUserPosts, setCurrentUserPosts] = useState
+  // const [currentUser, setCurrentUser] = useState()
+  const [currentUserPosts, setCurrentUserPosts] = useState()
   const { id } = useParams()
 
-  let getCurrentUser = () => {
-    axios.get(`${process.env.REACT_APP_backendURI}users/${id}`)
-    .then((res) => {
-      console.log(res.data)
-      setCurrentUser(res.data)
-    })
-  }
-
-  // let getCurrentUserPosts = () => {
-  //   axios.get(`${process.env.REACT_APP_backendURI}posts/profile/${id}`)
+  // let getCurrentUser = () => {
+  //   axios.get(`${process.env.REACT_APP_backendURI}users/${id}`)
   //   .then((res) => {
   //     console.log(res.data)
-  //     setCurrentUserPosts(res.data)
+  //     setCurrentUser(res.data)
   //   })
   // }
 
+  let getCurrentUserPosts = () => {
+    axios.get(`${process.env.REACT_APP_backendURI}posts/profile/${id}`)
+    .then((res) => {
+      setCurrentUserPosts(res.data)  
+    })
+  }
+  console.log(currentUserPosts)
+  console.log(post)
+
   useEffect(() => {
-    getCurrentUser()
-    // getCurrentUserPosts()
+    // getCurrentUser()
+    getCurrentUserPosts()
   }, [])
 
   
@@ -65,10 +70,40 @@ const Feed = ({post,user,likeHandler,like}) => {
 
   return (
     <div>
-        <h1>Feed</h1>
-       <h1>{currentUser? currentUser.username : null}</h1>
+       <div className="profile">
+        <div className="profileRight">
+          <div className="profileRightTop">
+            <div className="profileCover">
+              <img
+                className="profileCoverImg"
+                src={ user.coverPicture
+                  ?  user.coverPicture:
+                  "/image/foodCover.jpeg"}
+                alt=""
+              />
+              <img
+                className="profileUserImg"
+                src={
+                  user.profilePicture
+                    ?  user.profilePicture:
+                    "/image/icon_avatar.png"
+                }
+                alt=""
+              />
+            </div>
+            <div className="profileInfo">
+              <h4 className="profileInfoName">{user.username}</h4>
+            </div>
+          </div>
+          <div className="profileRightBottom">
         <Post post={post} user={user} />
+
+          </div>
+        </div>
+      </div>
+
         <UserRecipes posts={post} user={user}/>
+
     </div>
   );
 };

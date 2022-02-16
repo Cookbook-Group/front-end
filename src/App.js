@@ -83,7 +83,7 @@ function App({ postData, userData }) {
           <Route path="/chat" element={user ? <Chat />: <Navigate to='/login' />}  />
         <Route
           path="/login"
-          element={user ? <Navigate to="/" /> : <Login setUser={setUser} login={login} message={message}/>}
+          element={user ? <Navigate to={`/feed/${user._id}`}/> : <Login setUser={setUser} login={login} message={message}/>}
         />
 
         <Route path="/feed/:id/edit" element={<Edit />} />
