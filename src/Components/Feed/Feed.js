@@ -96,14 +96,10 @@ const Feed = ({post,user,likeHandler,like}) => {
             </div>
           </div>
           <div className="profileRightBottom">
-        <Post post={post} user={user} />
-
           </div>
         </div>
       </div>
-
-        <UserRecipes posts={post} user={user}/>
-
+      <UserRecipes posts={post} user={user}/>
     </div>
   );
 };
