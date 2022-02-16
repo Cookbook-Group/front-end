@@ -20,6 +20,8 @@ import User from './Components/User'
 import NewForm from './Components/NewForm/NewForm';
 import ProtectedRoutes from './Components/ProtectedRoutes';
 import { getDefaultNormalizer } from '@testing-library/dom'
+import Uploads from './Components/Uploads/Uploads';
+import UploadHome from './Components/Uploads/UploadHome'
 
 console.log(process.env.REACT_APP_backendURI)
 
@@ -81,6 +83,9 @@ function App({postData, userData}) {
           <Route path='/chat' element={<Chat/>}/>
           </Route>
           <Route path='/login' element={<Login setUser={setUser} login={login} message={message}/>}/>
+          <Route path='/uploads' element={<Uploads />}/>
+          <Route path='/uploadHome' element={<UploadHome />}/>
+          
         </Routes>
 
        {/* <Header /> */}
