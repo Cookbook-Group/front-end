@@ -9,63 +9,13 @@ import './Feed.css'
 import UserRecipes from '../UserRecipes/UserRecipes';
 
 
-const Feed = ({post,user,likeHandler,like}) => {
-  
-  // const [currentUser, setCurrentUser] = useState()
-  const [currentUserPosts, setCurrentUserPosts] = useState()
-  const { id } = useParams()
+const Feed = ({post,user}) => {
 
-  // let getCurrentUser = () => {
-  //   axios.get(`${process.env.REACT_APP_backendURI}users/${id}`)
-  //   .then((res) => {
-  //     console.log(res.data)
-  //     setCurrentUser(res.data)
-  //   })
-  // }
-
-  let getCurrentUserPosts = () => {
-    axios.get(`${process.env.REACT_APP_backendURI}posts/profile/${id}`)
-    .then((res) => {
-      setCurrentUserPosts(res.data)  
-    })
-  }
-  console.log(currentUserPosts)
-  console.log(post)
-
-  useEffect(() => {
-    // getCurrentUser()
-    getCurrentUserPosts()
-  }, [])
-
-  
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     const res = await axios.get(`${process.env.REACT_APP_backendURI}posts/${post._id}`);
-  //     setCurrentUser(res.data);
-  //     console.log(user)
-  //     console.log(post.userId)
-  //     console.log(res.data)
-  //   };
-  //   fetchUser();
-  // },[post.userId]);
-
-  // let deletePost = async (post) => {
-  //   if (post.userId === user.id) {
-  //      let data = await fetch(`${process.env.REACT_APP_backendURI}posts/${post._id}`,{
-  //     method:'DELETE',
-  //     body:null,
-  //     headers: {
-  //       'content-type': 'application/json'
-  //   }
-  //   })
-  //   let allPosts = await data.json()
-  //   if (allPosts) {
-  //     setPosts(allPosts)
-  //   }
-  //   } else {
-  //     alert('You can only delete your own post.')
-  //   }
-  // }
+  let userPosts = post.filter((post) => {
+    return  post.userId === user._id
+    
+  })
+console.log(userPosts)
   
 
   return (
@@ -99,7 +49,7 @@ const Feed = ({post,user,likeHandler,like}) => {
           </div>
         </div>
       </div>
-      <UserRecipes posts={post} user={user}/>
+      <UserRecipes posts={userPosts} user={user}/>
     </div>
   );
 };

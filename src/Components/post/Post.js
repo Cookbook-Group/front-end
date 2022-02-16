@@ -19,6 +19,7 @@ const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
     setIsOpen(!isOpen);
   }
 
+
   // useEffect(() => {
   //   const fetchUser = async () => {
   //     const res = await axios.get(`${process.env.REACT_APP_backendURI}users/${post.userId}`);
@@ -43,7 +44,11 @@ const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
     let allPosts = await data.json()
     alert('Your post had been deleted.')
     if (allPosts) {
-    setPosts(allPosts)
+    setPosts(
+      allPosts.sort((p1, p2) => {
+        return new Date(p2.createdAt) - new Date(p1.createdAt);
+      })
+    )
 
     }
     } else {

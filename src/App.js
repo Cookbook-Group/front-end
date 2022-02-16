@@ -33,7 +33,11 @@ function App({ postData, userData }) {
 
   function getData() {
     axios.get(`${process.env.REACT_APP_backendURI}posts`).then((res) => {
-      setPosts(res.data)
+      setPosts(
+        res.data.sort((p1, p2) => {
+          return new Date(p2.createdAt) - new Date(p1.createdAt);
+        })
+      )
     })
     axios.get(`${process.env.REACT_APP_backendURI}users`).then((res) => {
       setUsers(res.data)
