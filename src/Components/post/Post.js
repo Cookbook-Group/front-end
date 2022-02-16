@@ -9,11 +9,7 @@ import axios from 'axios';
 
 
 
-<<<<<<< HEAD
 const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
-=======
-const Post = ({post,user,likeHandler,like, setPosts}) => {
->>>>>>> 0c97d53 (delete post is now working and update sign in auth and update some page layout)
 
   const [isOpen, setIsOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState()
@@ -47,10 +43,7 @@ const Post = ({post,user,likeHandler,like, setPosts}) => {
     alert('Your post had been deleted.')
     if (allPosts) {
     setPosts(allPosts)
-<<<<<<< HEAD
     // getData()
-=======
->>>>>>> 0c97d53 (delete post is now working and update sign in auth and update some page layout)
     }
     } else {
       alert('You can only delete your own post.')
