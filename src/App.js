@@ -90,7 +90,7 @@ function App({ postData, userData }) {
           element={user ? <Navigate to={`/feed/${user._id}`}/> : <Login setUser={setUser} login={login} message={message}/>}
         />
 
-        <Route path="/feed/:id/edit" element={<Edit />} />
+        <Route path="/posts/:id/edit" element={<Edit />} />
         <Route
           path="/user/:userId"
           element={
