@@ -9,6 +9,7 @@ import axios from 'axios';
 
 
 
+
 const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +44,7 @@ const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
     alert('Your post had been deleted.')
     if (allPosts) {
     setPosts(allPosts)
-    // getData()
+
     }
     } else {
       alert('You can only delete your own post.')
@@ -85,6 +86,9 @@ const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
             <span className="postUsername">{user.username}</span>
             <span className="postDate">{format(post.createdAt)}</span>
             <button onClick={() => deletePost(post)}>Delete</button>
+            
+            <Link to={{pathname: `posts/${post._id}/edit`}}>Edit</Link>
+
           </div>
           <div className="postTopRight">
           </div>
