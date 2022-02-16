@@ -43,6 +43,7 @@ const NewForm = ({addPost,user}) => {
     addPost(post)
     setNewForm('')
     togglePopup()
+    
   }
 
   let handleChange = (e) =>{

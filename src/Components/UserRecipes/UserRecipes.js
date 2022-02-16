@@ -27,9 +27,12 @@ const UserRecipes = ({posts,user}) => {
 
                 {isOpen && <Popup
                     content={<>
-                    <img 
+         
+                    <img className='details-image'
                         src={post.image} 
-                        alt={user.name}/>
+                        alt="food"/>
+                        <p>{post.title}</p>
+                        <p>{post.recipes}</p>
                     </>}
                         handleClose={togglePopup}
                     />}
