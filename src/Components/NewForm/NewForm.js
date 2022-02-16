@@ -57,7 +57,9 @@ const NewForm = ({addPost,user}) => {
   <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src="" alt="" />
+          <img className="shareProfileImg" src={user.profilePicture
+                    ?  user.profilePicture:
+                    "/image/icon_avatar.png"} alt="" />
           <input 
             value="What's your MEAL ?"
             className="shareInput"
@@ -126,7 +128,9 @@ const NewForm = ({addPost,user}) => {
                 <b>Add Your Post</b>
                 <hr className="shareHr"/>
                 <div className="shareTop">
-                  <img className="shareProfileImg" src="" alt="" />
+                  <img className="shareProfileImg" src={user.profilePicture
+                    ?  user.profilePicture:
+                    "/image/icon_avatar.png"} alt="" />
                   <input 
                     placeholder ="What's your MEAL ?"
                     className="shareInput"

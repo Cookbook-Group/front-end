@@ -77,7 +77,7 @@ const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
                 src={
                   user.profilePicture
                     ?  user.profilePicture:
-                    "image/icon_avatar.png"
+                    "/image/icon_avatar.png"
                 }
                 alt=""
               />
@@ -100,7 +100,7 @@ const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
           <div className="postBottomLeft">
             <img
               className="likeIcon"
-              src='image/icon_like.png'
+              src='/image/icon_like.png'
               onClick={likeHandler}
               alt=""
             />
