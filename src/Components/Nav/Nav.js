@@ -14,7 +14,7 @@ const Nav = ({user}) => {
               <img className='logonav' src='/image/logo.png' alt='logo'/>
            </Link>
 
-           <SearchForm/>
+           {/* <SearchForm/> */}
 
            <h1 style={{color:'black'}}>{user && user.username !== undefined ? `welcome ${user.username}` : null }</h1>
 
@@ -34,7 +34,7 @@ const Nav = ({user}) => {
               </li>
 
               <li>
-                <Link to='/feed'>
+                <Link to='/feed/:id'>
                   <img className='icon' src='/image/icon_heart.png' alt='heart'/>
                 </Link>
               </li>
@@ -51,14 +51,17 @@ const Nav = ({user}) => {
                 </Link>
               </li>
               <li>  
+                {user && user.username !== undefined ? 
+                <Link  to={`/feed/${user._id}`}>
+                  <img className='icon' src={user.profilePicture
+                    ?  user.profilePicture:
+                    "/image/icon_avatar.png"} alt="profilePic" />
+                </Link>
+                :
                 <Link to='/login'>
                   <img className='icon' src='/image/icon_login.png' alt='login'/> 
                 </Link>
-
-                {/* <Link to='/profile'>
-                  <img src='' alt='profile avatar'/> <p>by user.name</p>
-                </Link> */}
-                
+              }
               </li>
             </ul>    
       </nav>
