@@ -12,28 +12,25 @@ const UserRecipes = ({posts,user}) => {
     <div>
          <section className='container'>
             {
-                posts.map((post) =>(
+                posts.map(post =>(
             
                 <div className='card'>
                 <div className='card-image'>
                     <img className='image-size'
-                        src={post.image} 
-                        alt={user.name}
                         type="button"
                         onClick={togglePopup}
+                        src={post.image} 
+                        alt=""    
                     />
-                    {/* </div>
-                    </div> */}
-
                 {isOpen && <Popup
-                    content={<>
-         
-                    <img className='details-image'
+                    content={<div>
+                       <img className='details-image'
                         src={post.image} 
                         alt="food"/>
                         <p>{post.title}</p>
-                        <p>{post.recipes}</p>
-                    </>}
+                        <p>{post.recipes}</p> 
+                    </div>
+                    }
                         handleClose={togglePopup}
                     />}
                 </div>
