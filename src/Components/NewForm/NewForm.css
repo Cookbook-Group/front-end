@@ -74,3 +74,6 @@
       cursor: pointer;
       color: white;
   }
+  .shareButton:hover{
+    background: #42b72a;
+  }

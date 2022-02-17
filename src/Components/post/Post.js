@@ -96,12 +96,16 @@ const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
             {/* </Link> */}
             <span className="postUsername">{post?post.user.username:null}</span>
             <span className="postDate">{format(post.createdAt)}</span>
-            <button onClick={() => deletePost(post)}>Delete</button>
-            
-            <Link to={{pathname: `posts/${post._id}/edit`}}>Edit</Link>
-
-          </div>
+          </div> 
           <div className="postTopRight">
+          <img className='icon_post' src='/image/icon_delete.png' alt='Delete' onClick={() => deletePost(post)} />
+
+            {/* <button className='delete_button' onClick={() => deletePost(post)}>X</button> */}
+            
+         
+            <Link to={{pathname: `posts/${post._id}/edit`}}>
+              <img className='icon_post' src='/image/icon_edit.png' alt='Edit'/>
+            </Link>
           </div>
         </div>
         <div className="postCenter">
