@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 
 let EditForm = ({ post }) => {
@@ -9,13 +9,16 @@ let EditForm = ({ post }) => {
 
   console.log(post._id)
   console.log(editForm)
+  const navigate = useNavigate()
 
   let handleSubmit = async (e) => {
     e.preventDefault()
+    console.log(this)
     const res = axios.put(`${process.env.REACT_APP_backendURI}posts/${post._id}`,editForm)
     .then((res) => {
       console.log(res.data)
       console.log('Recipe successfully updated')
+      navigate('/')
     }).catch((error) => {
       console.log(error)
     })
@@ -31,7 +34,7 @@ let EditForm = ({ post }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} afterSubmit={() => navigate('/')}>
         <b>Edit Your Post</b>
         <hr className="shareHr" />
         <div className="shareTop">
