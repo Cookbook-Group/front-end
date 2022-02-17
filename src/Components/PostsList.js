@@ -11,7 +11,7 @@ const PostsList = ({postData,user,setPosts, getData}) => {
       {postData.map((post) =>{
       
 
-         return <Post post={post} user={user} setPosts={setPosts} key={post.name} getData={getData}/>
+         return <Post post={post} user={user} setPosts={setPosts} key={post.title} getData={getData}/>
       })}
       
   </div>;
