@@ -32,7 +32,8 @@ const NewForm = ({addPost,user}) => {
           calories: newForm.calories,
           recipes: newForm.recipes,
           tags: newForm.tags,
-          userId: user._id
+          userId: user._id,
+          user: user
       }),
       headers:{
         'Content-Type': 'application/json'

@@ -13,7 +13,7 @@ import axios from 'axios';
 const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
 
   const [isOpen, setIsOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useState()
+  // const [currentUser, setCurrentUser] = useState()
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -55,21 +55,7 @@ const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
       alert('You can only delete your own post.')
     }
   }
-
-//   let updatePost = async (post) => {
-//     let data = await fetch(`${process.env.REACT_APP_backendURI}posts/${post._id}`, {
-//       method: 'PUT',
-//       body: JSON.stringify({new:true}),
-//       headers: {
-//           'content-type': 'application/json'
-//       }
-//   })
-// let allPosts = await data.json()
-// if (allPosts) {
-//     setPosts(allPosts)
-
-//     }
-//   }
+console.log(post)
 
 
   return (
@@ -80,15 +66,15 @@ const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
             <Link to={`/feed/${user._id}`}>
               <img
                 className="postProfileImg"
-                src={
-                  user.profilePicture
-                    ?  user.profilePicture:
-                    "/image/icon_avatar.png"
+                src={ post ?
+                  (post.user.profilePicture
+                    ?  post.user.profilePicture:
+                    "/image/icon_avatar.png") : null
                 }
                 alt=""
               />
             </Link>
-            <span className="postUsername">{user.username}</span>
+            <span className="postUsername">{post? post.user.username:null}</span>
             <span className="postDate">{format(post.createdAt)}</span>
             <button onClick={() => deletePost(post)}>Delete</button>
             
