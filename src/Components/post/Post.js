@@ -10,27 +10,13 @@ import axios from 'axios';
 
 
 
-const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
+const Post = ({post,user,setPosts}) => {
 
   const [isOpen, setIsOpen] = useState(false);
-  // const [currentUser, setCurrentUser] = useState()
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
-
-
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     const res = await axios.get(`${process.env.REACT_APP_backendURI}users/${post.userId}`);
-  //     setCurrentUser(res.data);
-  //     console.log(user)
-  //     console.log(post.userId)
-  //     console.log(res.data)
-  //   };
-  //   fetchUser();
-  // },[post.userId]);
-
 
   let deletePost = async (post) => {
     if (post.userId === user._id) {
@@ -48,15 +34,11 @@ const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
       allPosts.sort((p1, p2) => {
         return new Date(p2.createdAt) - new Date(p1.createdAt);
       })
-    )
-
-    }
+    )}
     } else {
       alert('You can only delete your own post.')
     }
   }
-
-
 
   let addLikes = async (post) => {
     let data = await fetch(`${process.env.REACT_APP_backendURI}posts/${post._id}`,{
