@@ -1,17 +1,9 @@
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-rows: minmax(250px, auto);
-    grid-gap: 1rem;
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 1rem;
-  }
-  
+
   .card {
     border: 1px solid lightgray;
     border-radius: 1rem;
     display: grid;
+    /* grid-template-rows: 2fr 1fr; */
   }
   
   .card-image {
@@ -35,16 +27,3 @@
     text-align: center;
   }
 
-.details-image{
-    padding: 1rem;
-    width: 900px;
-    /* height: 600px; */
-}
-
-@media only screen and (max-width: 600px) {
-
-    .details-image{
-        padding: 1rem;
-        width: 300px;
-    }
-  }

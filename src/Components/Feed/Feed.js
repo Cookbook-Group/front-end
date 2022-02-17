@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import './Feed.css'
 
+import UserAllRecipes from '../UserAllRecipes/UserAllRecipes';
 import UserRecipes from '../UserRecipes/UserRecipes';
 
 
@@ -49,7 +50,8 @@ console.log(userPosts)
           </div>
         </div>
       </div>
-      <UserRecipes posts={userPosts} user={user}/>
+      <UserAllRecipes posts={userPosts} user={user}/>
+      {/* <UserRecipes posts={userPosts} user={user}/> */}
     </div>
   );
 };
