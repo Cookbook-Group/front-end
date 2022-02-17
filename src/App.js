@@ -91,7 +91,7 @@ function App({ postData, userData }) {
       <Nav user={user} />
       <Routes>
 
-        <Route path="/" element={user ? <Home posts={posts} user={user} addPost={addPost} setPosts={setPosts} getData={getData}/>: <Navigate to='/login' />}  />
+        <Route path="/" element={user ? <Home posts={posts} user={user} addPost={addPost} setPosts={setPosts}/>: <Navigate to='/login' />}  />
 
           <Route path="/new" element={user ? <New addPost={addPost} user={user}/> : <Navigate to='/login' />} />
           <Route path="/save" element={ user? <SaveDishes />: <Navigate to='/login' />}  />

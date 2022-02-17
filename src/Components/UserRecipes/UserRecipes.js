@@ -27,7 +27,7 @@ const UserRecipes = ({posts,user,post}) => {
                     <img className='details-image'
                     src={post.image} 
                     alt="food"/>
-                    <p>{post.title}</p>
+                    <h1>{post.title}</h1>
                     <p>{post.recipes}</p> 
                              
                 </div>
