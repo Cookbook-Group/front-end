@@ -70,10 +70,18 @@ function App({ postData, userData }) {
   //   console.log(setUser)
   // }
 
-
   let addPost = (post)=>{
-    setPosts([...posts,post])
+    setPosts([post,...posts])
   }
+
+
+  // let addPost = (post)=>{
+  //   const newPost =[...posts,post]
+  //   newPost.sort((p1, p2) => {
+  //     return new Date(p2.createdAt) - new Date(p1.createdAt);
+  //   })
+  //   setPosts(newPost)
+  // }
 
 
 
