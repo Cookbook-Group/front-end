@@ -40,7 +40,7 @@ const NewForm = ({addPost,user}) => {
       } 
     })
     let post = await response.json()
-    console.log(response)
+    console.log(post)
     addPost(post)
     setNewForm('')
     togglePopup()
