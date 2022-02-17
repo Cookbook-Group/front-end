@@ -55,7 +55,27 @@ const Post = ({post,user,likeHandler,like, setPosts , getData}) => {
       alert('You can only delete your own post.')
     }
   }
-console.log(post)
+
+
+
+  let addLikes = async (post) => {
+    let data = await fetch(`${process.env.REACT_APP_backendURI}posts/${post._id}`,{
+      method:'PUT',
+      body: JSON.stringify({likes: post.likes + 1}),
+      headers: {
+        'content-type': 'application/json'
+    }
+  })
+  let allPosts = await data.json()
+  if(allPosts){
+    setPosts(
+      allPosts.sort((p1, p2) => {
+        return new Date(p2.createdAt) - new Date(p1.createdAt);
+      })
+      )
+  }
+}
+
 
 
   return (
@@ -63,18 +83,18 @@ console.log(post)
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <Link to={`/feed/${user._id}`}>
+            {/* <Link to={`/feed/${post.userId}`}> */}
               <img
                 className="postProfileImg"
                 src={ post ?
-                  (post.user.profilePicture
+                  post.user.profilePicture
                     ?  post.user.profilePicture:
-                    "/image/icon_avatar.png") : null
+                    "/image/icon_avatar.png" : null
                 }
                 alt=""
               />
-            </Link>
-            <span className="postUsername">{post? post.user.username:null}</span>
+            {/* </Link> */}
+            <span className="postUsername">{post?post.user.username:null}</span>
             <span className="postDate">{format(post.createdAt)}</span>
             <button onClick={() => deletePost(post)}>Delete</button>
             
@@ -96,10 +116,10 @@ console.log(post)
             <img
               className="likeIcon"
               src='/image/icon_like.png'
-              onClick={likeHandler}
+              onClick={() => addLikes(post)}
               alt=""
             />
-            <span className="postLikeCounter">{like} people like it</span>
+            <span className="postLikeCounter">{post.likes} people like it</span>
           </div>
           <div className="postBottomRight">
             <span className="postCommentText" type="button" onClick={togglePopup}>Recipe</span>
