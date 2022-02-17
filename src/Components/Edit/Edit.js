@@ -3,7 +3,7 @@ import EditForm from "../EditForm/EditForm"
 import { useParams } from "react-router-dom"
 import axios from "axios"
 
-const Edit = () => {
+const Edit = ( ) => {
 
   const [post, setPost] = useState({})
   let id = useParams()

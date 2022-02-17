@@ -1,107 +1,112 @@
 import React, { useEffect, useState } from "react"
+import { Redirect } from 'react-router-dom'
 import axios from "axios"
 
 let EditForm = ({ post }) => {
 
- 
 
- console.log(post)
+  let [editForm, setEditForm] = useState({post})
 
-  let form = {
-    image: post.image,
-    title: post.title,
-    calories: post.calories,
-    recipes: post.recipes,
-    tags: post.tags,
-  }
-
-  const [editForm, setEditForm] = useState({})
-
-  useEffect(() => {
-    setEditForm(form)
-  },[])
-
-  console.log(form)
+  console.log(post._id)
   console.log(editForm)
 
   let handleSubmit = async (e) => {
     e.preventDefault()
-    axios.put(`${process.env.REACT_APP_backendURI}posts/${post._id}`, editForm)
-      .then((res) => {
-        console.log(res.data)
-        console.log(`Post successfuly updated`)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
-
-  let handleChange = (e) => {
-    setEditForm({
-      ...editForm,
-      [e.target.id]: e.target.defaultValue,
+    const res = axios.put(`${process.env.REACT_APP_backendURI}posts/${post._id}`,editForm)
+    .then((res) => {
+      console.log(res.data)
+      console.log('Recipe successfully updated')
+    }).catch((error) => {
+      console.log(error)
     })
+    
   }
+  //Changes Database but doesn't reroute yet.
 
-
+  let handleChange = (e) =>{
+    setEditForm({
+			...editForm,[e.target.id]: e.target.value
+		})
+}
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        
+        <b>Edit Your Post</b>
+        <hr className="shareHr" />
+        <div className="shareTop">
+          <img className="shareProfileImg" src="" alt="" />
+          <input
+            placeholder="What's your MEAL ?"
+            className="shareInput"
+            onChange={handleChange}
+            type="text"
+            name="title"
+            id="title"
+            defaultValue={editForm.post.title}
+          />
+        </div>
 
-      <b>Add Your Post</b>
-                <hr className="shareHr"/>
-                <div className="shareTop">
-                  <img className="shareProfileImg" src="" alt="" />
-                  <input 
-                    placeholder ="What's your MEAL ?"
-                    className="shareInput"
-                    onChange ={handleChange} 
-                    type='text'
-                    name='title'
-                    id='title'
-                    defaultValue={form.title}/>
-                </div>
+        <hr className="shareHr" />
 
-                <hr className="shareHr"/>
-
-                <div className="shareBottom">
-                  <div className="shareInput">
-
-                      <div className="shareOption">
+        <div className="shareBottom">
+          <div className="shareInput">
+            {/* <div className="shareOption">
                           <img  className="shareIcon" src='/image/icon_image.png' alt='icon'/>
                           <input className="shareInput" placeholder ="Add Image" name='image' id='image' type='text' onChange ={handleChange} 
-                          defaultValue={form.image}/>
-                      </div>
-               
-                      <div className="shareOption">
-                          <img className="shareIcon" src='/image/icon_tag.png' alt='icon'/>
-                          <input className="shareInput" name='tags' id='tags' type='text' placeholder ="Add tag #" 
-                          onChange ={handleChange} 
-                          defaultValue={form.tags}/>
-                      </div>
+                          defaultValue={editForm.post.image}/>
+                      </div> */}
 
-                      <div className="shareOption">
-                          <img  className="shareIcon" src='/image/icon_kcal.png' alt='icon'/>
-                          <input className="shareInput" name='calories' type='text' id='calories' placeholder ="Add Calories" 
-                          onChange ={handleChange} 
-                          defaultValue={form.calories}/>
+            <div className="shareOption">
+              <img className="shareIcon" src="/image/icon_tag.png" alt="icon" />
+              <input
+                className="shareInput"
+                name="tags"
+                id="tags"
+                type="text"
+                placeholder="Add tag #"
+                onChange={handleChange}
+                defaultValue={editForm.post.tags}
+              />
+            </div>
 
-                      </div>
-                    
-                      <div className="shareOption">
-                          <img className="shareIcon" src='/image/icon_recipes.png' alt='icon'/>
-                          <input className="shareInput" name='recipes' type='text' id='recipes' placeholder ="Add Recipes" 
-                          onChange ={handleChange} 
-                          defaultValue={form.recipes}/>
-                      </div>
-                     
-                  </div>
-                  </div>
+            <div className="shareOption">
+              <img
+                className="shareIcon"
+                src="/image/icon_kcal.png"
+                alt="icon"
+              />
+              <input
+                className="shareInput"
+                name="calories"
+                type="text"
+                id="calories"
+                placeholder="Add Calories"
+                onChange={handleChange}
+                defaultValue={editForm.post.calories}
+              />
+            </div>
 
-        
-        <input className="shareButton" type="submit" value='POST' />
+            <div className="shareOption">
+              <img
+                className="shareIcon"
+                src="/image/icon_recipes.png"
+                alt="icon"
+              />
+              <input
+                className="shareInput"
+                name="recipes"
+                type="text"
+                id="recipes"
+                placeholder="Add Recipes"
+                onChange={handleChange}
+                defaultValue={editForm.post.recipes}
+              />
+            </div>
+          </div>
+        </div>
+
+        <input className="shareButton" type="submit" value="POST" />
       </form>
     </div>
   )
