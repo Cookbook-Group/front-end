@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 
-let EditForm = ({ post }) => {
+let EditForm = ({ post, setPosts}) => {
 
 
   let [editForm, setEditForm] = useState({post})
@@ -13,9 +13,13 @@ let EditForm = ({ post }) => {
 
   let handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(this)
-    const res = axios.put(`${process.env.REACT_APP_backendURI}posts/${post._id}`,editForm)
+    // console.log(this)
+    axios.put(`${process.env.REACT_APP_backendURI}posts/${post._id}`,editForm)
     .then((res) => {
+      setPosts(
+        res.data.sort((p1, p2) => {
+        return new Date(p2.createdAt) - new Date(p1.createdAt);
+      }))
       console.log(res.data)
       console.log('Recipe successfully updated')
       navigate('/')
