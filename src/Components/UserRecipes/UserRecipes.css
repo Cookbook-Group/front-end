@@ -3,6 +3,7 @@
     border: 1px solid lightgray;
     border-radius: 1rem;
     display: grid;
+    overflow: hidden;
     /* grid-template-rows: 2fr 1fr; */
   }
   
