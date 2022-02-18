@@ -3,7 +3,7 @@ import EditForm from "../EditForm/EditForm"
 import { useParams } from "react-router-dom"
 import axios from "axios"
 
-const Edit = ({setPosts}) => {
+const Edit = ({setPosts, user}) => {
 
   const [post, setPost] = useState({})
   let {id }= useParams()
@@ -19,7 +19,7 @@ const Edit = ({setPosts}) => {
     getPost()
   },[])
 
-  return <EditForm post={post} setPosts={setPosts} />
+  return <EditForm post={post} setPosts={setPosts} user={user} />
 }
 
 export default Edit

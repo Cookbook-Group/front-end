@@ -79,16 +79,13 @@ const Post = ({post,user,setPosts}) => {
             <span className="postUsername">{post?post.user.username:null}</span>
             <span className="postDate">{format(post.createdAt)}</span>
           </div> 
+          { (post.userId === user._id) ? 
           <div className="postTopRight">
-          <img className='icon_post' src='/image/icon_delete.png' alt='Delete' onClick={() => deletePost(post)} />
-
-            {/* <button className='delete_button' onClick={() => deletePost(post)}>X</button> */}
-            
-         
+          <img className='icon_post' src='/image/icon_delete.png' alt='Delete' onClick={() => deletePost(post)} />    
             <Link to={{pathname: `posts/${post._id}/edit`}}>
               <img className='icon_post' src='/image/icon_edit.png' alt='Edit'/>
             </Link>
-          </div>
+          </div> :  null}
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
@@ -110,7 +107,7 @@ const Post = ({post,user,setPosts}) => {
           <div className="postBottomRight">
             <span className="postCommentText" type="button" onClick={togglePopup}>Recipe</span>
             {isOpen && <Popup
-            content={<Recipe post={post}/>}
+            content={<Recipe post={post} addLikes={addLikes}/>}
             handleClose={togglePopup}
             />}
           </div>
