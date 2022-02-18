@@ -104,7 +104,7 @@ function App({ postData, userData }) {
          <Route path='/uploads' element={<Uploads />}/>
           <Route path='/uploadHome' element={<UploadHome />}/>
 
-        <Route path="/posts/:id/edit" element={<Edit />} />
+        <Route path="/posts/:id/edit" element={<Edit setPosts={setPosts} />} />
         <Route
           path="/user/:userId"
           element={
