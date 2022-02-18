@@ -1,13 +1,14 @@
 // import logo from './logo.svg';
 import "./App.css"
 import Header from "./Components/Header"
-import { Route, Routes, Link } from "react-router-dom"
+import { Route, Routes, Link, Navigate } from "react-router-dom"
 import Nav from "./Components/Nav/Nav"
 import New from "./Components/New/New"
 
 import axios from "axios"
 
 // import { Route,Routes,Link } from 'react-router-dom';
+
 import Posts from "./Components/Posts"
 import SaveDishes from "./Components/SaveDishes/SaveDishes"
 import Feed from "./Components/Feed/Feed"
@@ -18,8 +19,13 @@ import Recipe from "./Components/Recipe/Recipe"
 import { useEffect, useState } from "react"
 import User from "./Components/User"
 import NewForm from "./Components/NewForm/NewForm"
-import ProtectedRoutes from "./Components/ProtectedRoutes"
 import { getDefaultNormalizer } from "@testing-library/dom"
+import Uploads from './Components/Uploads/Uploads';
+import UploadHome from './Components/Uploads/UploadHome'
+
+
+import Edit from "./Components/Edit/Edit"
+
 
 function App({ postData, userData }) {
   const [posts, setPosts] = useState([])
@@ -31,7 +37,11 @@ function App({ postData, userData }) {
 
   function getData() {
     axios.get(`${process.env.REACT_APP_backendURI}posts`).then((res) => {
-      setPosts(res.data)
+      setPosts(
+        res.data.sort((p1, p2) => {
+          return new Date(p2.createdAt) - new Date(p1.createdAt);
+        })
+      )
     })
     axios.get(`${process.env.REACT_APP_backendURI}users`).then((res) => {
       setUsers(res.data)
@@ -40,7 +50,7 @@ function App({ postData, userData }) {
 
   useEffect(() => {
     getData()
-  }, [])
+  },[])
 
   const login = (user) => {
     if (user && user.username !== undefined) {
@@ -60,31 +70,41 @@ function App({ postData, userData }) {
   //   console.log(setUser)
   // }
 
-
   let addPost = (post)=>{
-    setPosts([...posts,post])
+    setPosts([post,...posts])
   }
 
-  
-  // below code is for testing
-  let tempUser = userData[0]
+
+  // let addPost = (post)=>{
+  //   const newPost =[...posts,post]
+  //   newPost.sort((p1, p2) => {
+  //     return new Date(p2.createdAt) - new Date(p1.createdAt);
+  //   })
+  //   setPosts(newPost)
+  // }
+
+
 
   return (
     <div className="App">
       {/* <button onClick={logout}>logout</button>  */}
       <Nav user={user} />
       <Routes>
-        <Route path="/" element={<Home posts={posts} user={user} />} />
-        <Route element={<ProtectedRoutes />}>
-          <Route path="/new" element={<New />} />
-          <Route path="/save" element={<SaveDishes />} />
-          <Route path="/feed" element={<Feed />} />
-          <Route path="/chat" element={<Chat />} />
-        </Route>
+
+        <Route path="/" element={user ? <Home posts={posts} user={user} addPost={addPost} setPosts={setPosts}/>: <Navigate to='/login' />}  />
+
+          <Route path="/new" element={user ? <New addPost={addPost} user={user}/> : <Navigate to='/login' />} />
+          <Route path="/save" element={ user? <SaveDishes />: <Navigate to='/login' />}  />
+          <Route path="/feed/:id" element={user ? <Feed post={posts} user={user}/>: <Navigate to='/login' />}  />
+          <Route path="/chat" element={user ? <Chat />: <Navigate to='/login' />}  />
         <Route
           path="/login"
-          element={<Login setUser={setUser} login={login} message={message} />}
+          element={user ? <Navigate to={`/feed/${user._id}`}/> : <Login setUser={setUser} login={login} message={message}/>}
         />
+         <Route path='/uploads' element={<Uploads />}/>
+          <Route path='/uploadHome' element={<UploadHome />}/>
+
+        <Route path="/posts/:id/edit" element={<Edit setPosts={setPosts} />} />
         <Route
           path="/user/:userId"
           element={
@@ -100,6 +120,7 @@ function App({ postData, userData }) {
       <User user={tempUser}/>
       <Posts postData={posts}/>
       <Recipe/> */}
+
     </div>
   )
 }

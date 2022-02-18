@@ -76,3 +76,39 @@
       border-bottom: 1px dashed gray;
       font-size: 15px;
   }
+
+  .delete_button{
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: rgb(126, 125, 125);
+    font-weight: 500;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .delete_button:hover{
+    background: #000000;
+  }
+
+  .edit_link{
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: rgb(255, 126, 5);
+    font-weight: 500;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+  }
+
+  .edit_button:hover{
+    background: #ffb656;
+  }
+
+  .icon_post{
+    width: 40px;
+    margin: 5px;
+}

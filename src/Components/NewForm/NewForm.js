@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './NewForm.css'
-// import Popup from './Popup';
 import Popup from '../PopUp/Popup'
+import { Navigate } from 'react-router-dom'
 
 const NewForm = ({addPost,user}) => {
   const form = {
@@ -32,16 +32,19 @@ const NewForm = ({addPost,user}) => {
           calories: newForm.calories,
           recipes: newForm.recipes,
           tags: newForm.tags,
-          userId: user._id
+          userId: user._id,
+          user: user
       }),
       headers:{
         'Content-Type': 'application/json'
       } 
     })
     let post = await response.json()
-    console.log(response)
+    console.log(post)
     addPost(post)
     setNewForm('')
+    togglePopup()
+    
   }
 
   let handleChange = (e) =>{
@@ -51,11 +54,13 @@ const NewForm = ({addPost,user}) => {
 }
 
   return (
-<form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit} >
   <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src="" alt="" />
+          <img className="shareProfileImg" src={user.profilePicture
+                    ?  user.profilePicture:
+                    "/image/icon_avatar.png"} alt="" />
           <input 
             value="What's your MEAL ?"
             className="shareInput"
@@ -124,7 +129,9 @@ const NewForm = ({addPost,user}) => {
                 <b>Add Your Post</b>
                 <hr className="shareHr"/>
                 <div className="shareTop">
-                  <img className="shareProfileImg" src="" alt="" />
+                  <img className="shareProfileImg" src={user.profilePicture
+                    ?  user.profilePicture:
+                    "/image/icon_avatar.png"} alt="" />
                   <input 
                     placeholder ="What's your MEAL ?"
                     className="shareInput"
@@ -169,13 +176,12 @@ const NewForm = ({addPost,user}) => {
                       </div>
                      
                   </div>
-                  <input className="shareButton" type="submit" value='POST' />
+                  <input className="shareButton" type="submit" value='POST'  />
                   {/* <button type='submit' className="shareButton">POST</button> */}
               </div>
             </>}
           handleClose={togglePopup}
            />} 
-
   </form>
   )
 }

@@ -5,26 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-
-const userData = [
-  {
-    "name": "Urna Semper",
-    "posts": [1,2,3],
-    "followers": 50,
-    "following": 20
-  },
-  {
-    "name": "Not Urna Semper",
-    "posts": [1,2,3],
-    "followers": 30,
-    "following": 10
-  }
-]
-
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <App userData={userData}/>
+    <App />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
