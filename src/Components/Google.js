@@ -5,7 +5,7 @@ import GoogleButton from 'react-google-button'
 const Google = () => {
     const fetchAuthUser = async () => {
         const res = await axios
-        .get('http://localhost:4004/auth/user',{withCredentials: true})
+        .get(`${process.env.REACT_APP_backendURI}auth/user`,{withCredentials: true})
         .catch((err) => {
             console.log('Not properly authenticated')
         })
@@ -16,7 +16,7 @@ const Google = () => {
 
     const redierctToGoogle = async () => {
         let timer = null
-        const googleLoginURL = 'http://localhost:4004/auth/google'
+        const googleLoginURL = `${process.env.REACT_APP_backendURI}auth/google`
         const newWindow = window.open(
             googleLoginURL,
             '_blank',
