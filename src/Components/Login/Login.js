@@ -11,7 +11,7 @@ const Login = ({setUser,login,message}) => {
   const navigate = useNavigate()
   
   let getUsers = async () => {
-	  let data = await fetch('http://localhost:4004/users')
+	  let data = await fetch(`${process.env.REACT_APP_backendURI}users`)
 	  let allUsers = await data.json()
 	  setUsers(allUsers)
   }
