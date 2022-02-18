@@ -51,7 +51,6 @@ console.log(userPosts)
         </div>
       </div>
       <UserAllRecipes posts={userPosts} user={user}/>
-      {/* <UserRecipes posts={userPosts} user={user}/> */}
     </div>
   );
 };

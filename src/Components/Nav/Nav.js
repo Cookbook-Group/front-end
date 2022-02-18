@@ -33,11 +33,11 @@ const Nav = ({user}) => {
                 </Link>
               </li>
 
-              <li>
+              {/* <li>
                 <Link to='/feed/:id'>
                   <img className='icon' src='/image/icon_heart.png' alt='heart'/>
                 </Link>
-              </li>
+              </li> */}
 
               <li>
                 <Link to='/save'>

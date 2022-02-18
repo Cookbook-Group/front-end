@@ -1,35 +1,31 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import axios from "axios"
+import '../NewForm/NewForm.css'
 
-let EditForm = ({ post, setPosts}) => {
+let EditForm = ({ post, setPosts ,user}) => {
 
 
   let [editForm, setEditForm] = useState({post})
 
-  console.log(post._id)
-  console.log(editForm)
   const navigate = useNavigate()
 
   let handleSubmit = async (e) => {
     e.preventDefault()
-    // console.log(this)
     axios.put(`${process.env.REACT_APP_backendURI}posts/${post._id}`,editForm)
     .then((res) => {
       setPosts(
         res.data.sort((p1, p2) => {
         return new Date(p2.createdAt) - new Date(p1.createdAt);
       }))
-      console.log(res.data)
-      console.log('Recipe successfully updated')
+      alert('Your post successfully updated')
       navigate('/')
     }).catch((error) => {
       console.log(error)
     })
-    
   }
-  //Changes Database but doesn't reroute yet.
 
+ 
   let handleChange = (e) =>{
     setEditForm({
 			...editForm,[e.target.id]: e.target.value
@@ -42,7 +38,7 @@ let EditForm = ({ post, setPosts}) => {
         <b>Edit Your Post</b>
         <hr className="shareHr" />
         <div className="shareTop">
-          <img className="shareProfileImg" src="" alt="" />
+          <img className="shareProfileImg" src={user.profilePicture ? user.profilePicture : "/image/icon_avatar.png"} alt="" />
           <input
             placeholder="What's your MEAL ?"
             className="shareInput"
@@ -50,7 +46,7 @@ let EditForm = ({ post, setPosts}) => {
             type="text"
             name="title"
             id="title"
-            defaultValue={editForm.post.title}
+            defaultValue={post.title}
           />
         </div>
 
@@ -58,11 +54,11 @@ let EditForm = ({ post, setPosts}) => {
 
         <div className="shareBottom">
           <div className="shareInput">
-            {/* <div className="shareOption">
+            <div className="shareOption">
                           <img  className="shareIcon" src='/image/icon_image.png' alt='icon'/>
                           <input className="shareInput" placeholder ="Add Image" name='image' id='image' type='text' onChange ={handleChange} 
-                          defaultValue={editForm.post.image}/>
-                      </div> */}
+                          defaultValue={post.image}/>
+                      </div>
 
             <div className="shareOption">
               <img className="shareIcon" src="/image/icon_tag.png" alt="icon" />
@@ -73,7 +69,7 @@ let EditForm = ({ post, setPosts}) => {
                 type="text"
                 placeholder="Add tag #"
                 onChange={handleChange}
-                defaultValue={editForm.post.tags}
+                defaultValue={post.tags}
               />
             </div>
 
@@ -90,7 +86,7 @@ let EditForm = ({ post, setPosts}) => {
                 id="calories"
                 placeholder="Add Calories"
                 onChange={handleChange}
-                defaultValue={editForm.post.calories}
+                defaultValue={post.calories}
               />
             </div>
 
@@ -107,7 +103,39 @@ let EditForm = ({ post, setPosts}) => {
                 id="recipes"
                 placeholder="Add Recipes"
                 onChange={handleChange}
-                defaultValue={editForm.post.recipes}
+                defaultValue={post.recipes}
+              />
+            </div>
+            <div className="shareOption">
+              <img
+                className="shareIcon"
+                src="/image/icon_list.png"
+                alt="icon"
+              />
+              <input
+                className="shareInput"
+                name="ingredients"
+                type="text"
+                id="ingredients"
+                placeholder="Add Ingredients"
+                onChange={handleChange}
+                defaultValue={post.ingredients}
+              />
+            </div>
+            <div className="shareOption">
+              <img
+                className="shareIcon"
+                src="/image/icon_howTo.png"
+                alt="icon"
+              />
+              <input
+                className="shareInput"
+                name="instructions"
+                type="text"
+                id="instructions"
+                placeholder="Add Instructions"
+                onChange={handleChange}
+                defaultValue={post.instructions}
               />
             </div>
           </div>
