@@ -1,36 +1,56 @@
-import React, { useEffect, useState } from 'react';
-import { Image } from 'cloudinary-react';
-import axios from 'axios';
+// ImageDisplay.js
+import React, { useState } from "react";
+import axios from "axios";
 
-export default function Home() {
-    const [imageIds, setImageIds] = useState();
-    const loadImages = async () => {
-        try {
-           const res = await fetch('/api/images');
-            const data = await res.json();
-            setImageIds(data);
-        } catch (err) {
-            console.error(err);
-        }
+export default function ProfileImage() {
+  const [values, setValues] = useState({
+    imagePreviewUrl: "",
+    picFile: null,
+  });
+  let fileInput =  React.createRef();
+
+  // Activates user file input to set div
+  const editProfilePic = () => {
+    fileInput.current.click();
+  };
+  // Handles the image that was input by user
+  const handleImageChange = (e) => {
+    e.preventDefault();
+    let reader = new FileReader();
+    let inFile = e.target.files[0];
+    reader.onloadend = () => {
+      setValues({ ...values, picFile: inFile, imagePreviewUrl: reader.result });
     };
-    useEffect(() => {
-        loadImages();
-    }, []);
-    return (
-        <div>
-            <h1 className="title">Cloudinary Gallery</h1>
-            <div className="gallery">
-                {imageIds &&
-                    imageIds.map((imageId, index) => (
-                        <Image
-                            key={index}
-                            cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
-                            publicId={imageId}
-                            width="300"
-                            crop="scale"
-                        />
-                    ))}
-            </div>
-        </div>
-    );
+    reader.readAsDataURL(inFile);
+  };
+
+  // Call the API Backend, will describe this later
+  const handleSubmit = async () => {
+    let  formData = new FormData();
+    const imagefile = document.querySelector('#file')
+    formData.append("image", values.picFile)
+    // response stores the response back from the API
+   const  response = await axios.post(`/storage/upload`, formData).catch((error) => {
+     console.log(error)
+      // alert(
+      //   "Error occurred while uploading picture, try uploading a smaller image size or try again later."
+      // );
+      return;
+    });
+  };
+
+  return (
+    <div>
+      <div onClick={() => editProfilePic()}>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+          ref={fileInput}
+        />
+        <img src={values.imagePreviewUrl} alt="..." style={{ objectFit: "cover" }} />
+      </div>
+      <button onClick={handleSubmit}>Submit</button>
+    </div>
+  );
 }
