@@ -172,7 +172,7 @@ const NewForm = ({addPost,user}) => {
                     
                       <div className="shareOption">
                           <img className="shareIcon" src='/image/icon_recipes.png' alt='icon'/>
-                          <input className="shareInput" name='recipes' type='text' id='recipes' placeholder ="Recipes Name" 
+                          <input className="shareInput" name='recipes' type='text' id='recipes' placeholder ="Add Recipe Name" 
                           onChange ={handleChange} 
                           value={newForm.recipes}/>
                       </div>
@@ -186,7 +186,7 @@ const NewForm = ({addPost,user}) => {
 
                       <div className="shareOption">
                           <img className="shareIcon" src='/image/icon_howTo.png' alt='icon'/>
-                          <input className="shareInput" name='Add instructions' type='text' id='instructions' placeholder ="Instructions" 
+                          <input className="shareInput" name='nstructions' type='text' id='instructions' placeholder ="Add Instructions" 
                           onChange ={handleChange} 
                           value={newForm.instructions}/>
                       </div>
