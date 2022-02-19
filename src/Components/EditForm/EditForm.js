@@ -101,7 +101,7 @@ let EditForm = ({ post, setPosts ,user}) => {
                 name="recipes"
                 type="text"
                 id="recipes"
-                placeholder="Add Recipes"
+                placeholder="Add Recipe Name"
                 onChange={handleChange}
                 defaultValue={post.recipes}
               />

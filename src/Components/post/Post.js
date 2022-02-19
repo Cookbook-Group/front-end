@@ -65,7 +65,7 @@ const Post = ({post,user,setPosts}) => {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            {/* <Link to={`/feed/${post.userId}`}> */}
+            <Link to={`/feed/${post.userId}`}>
               <img
                 className="postProfileImg"
                 src={ post ?
@@ -75,14 +75,16 @@ const Post = ({post,user,setPosts}) => {
                 }
                 alt=""
               />
-            {/* </Link> */}
+            </Link>
+            <Link to={`/feed/${post.userId}`} style={{textDecoration:'none', color:'black'}} >
             <span className="postUsername">{post?post.user.username:null}</span>
+            </Link>
             <span className="postDate">{format(post.createdAt)}</span>
           </div> 
           { (post.userId === user._id) ? 
           <div className="postTopRight">
           <img className='icon_post' src='/image/icon_delete.png' alt='Delete' onClick={() => deletePost(post)} />    
-            <Link to={{pathname: `posts/${post._id}/edit`}}>
+            <Link to={{pathname: `/posts/${post._id}/edit`}}>
               <img className='icon_post' src='/image/icon_edit.png' alt='Edit'/>
             </Link>
           </div> :  null}

@@ -10,10 +10,24 @@ import UserAllRecipes from '../UserAllRecipes/UserAllRecipes';
 import UserRecipes from '../UserRecipes/UserRecipes';
 
 
-const Feed = ({post,user}) => {
+const Feed = ({post,user,setPosts}) => {
+
+  const [userProfile, setUserProfile] = useState({})
+  let {id }= useParams()
+
+  function getUserProfile() {
+    axios.get(`${process.env.REACT_APP_backendURI}users/${id}`).then((res) => {
+      setUserProfile(res.data)
+      console.log('hi',res.data)
+    })
+  }
+
+  useEffect(() => {
+    getUserProfile()
+  },[])
 
   let userPosts = post.filter((post) => {
-    return  post.userId === user._id
+    return  post.userId === userProfile._id
     
   })
 console.log(userPosts)
@@ -27,30 +41,30 @@ console.log(userPosts)
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src={ user.coverPicture
-                  ?  user.coverPicture:
+                src={ userProfile.coverPicture
+                  ?  userProfile.coverPicture:
                   "/image/foodCover.jpeg"}
                 alt=""
               />
               <img
                 className="profileUserImg"
                 src={
-                  user.profilePicture
-                    ?  user.profilePicture:
+                  userProfile.profilePicture
+                    ?  userProfile.profilePicture:
                     "/image/icon_avatar.png"
                 }
                 alt=""
               />
             </div>
             <div className="profileInfo">
-              <h4 className="profileInfoName">{user.username}</h4>
+              <h4 className="profileInfoName">{userProfile.username}</h4>
             </div>
           </div>
           <div className="profileRightBottom">
           </div>
         </div>
       </div>
-      <UserAllRecipes posts={userPosts} user={user}/>
+      <UserAllRecipes posts={userPosts} user={userProfile} setPosts={setPosts} currentUser={user}/>
     </div>
   );
 };

@@ -79,7 +79,7 @@ function App() {
 
           <Route path="/new" element={user ? <New addPost={addPost} user={user}/> : <Navigate to='/login' />} />
           <Route path="/save" element={ user? <SaveDishes />: <Navigate to='/login' />}  />
-          <Route path="/feed/:id" element={user ? <Feed post={posts} user={user}/>: <Navigate to='/login' />}  />
+          <Route path="/feed/:id" element={user ? <Feed post={posts} user={user} setPosts={setPosts}/>: <Navigate to='/login' />}  />
           <Route path="/chat" element={user ? <Chat />: <Navigate to='/login' />}  />
           <Route
           path="/login"
@@ -87,7 +87,7 @@ function App() {
           />
           <Route path='/uploads' element={<Uploads />}/>
           <Route path='/uploadHome' element={<UploadHome />}/>
-
+          <Route path="/feed/:userId/posts/:id/edit" element={<Edit setPosts={setPosts} user={user} />} />
           <Route path="/posts/:id/edit" element={<Edit setPosts={setPosts} user={user} />} />
           <Route
           path="/user/:userId"
