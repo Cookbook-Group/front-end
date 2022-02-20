@@ -80,7 +80,6 @@ function App() {
           <Route path="/new" element={user ? <New addPost={addPost} user={user}/> : <Navigate to='/login' />} />
           <Route path="/save" element={ user? <SaveDishes />: <Navigate to='/login' />}  />
           <Route path="/feed/:id" element={user ? <Feed post={posts} user={user} setPosts={setPosts} setUser={setUser}/>: <Navigate to='/login' />}  />
-          <Route path="/feed/:friendid/list" element={user ? <Feed post={posts} user={user} setPosts={setPosts} setUser={setUser}/>: <Navigate to='/login' />}  />
           <Route path="/chat" element={user ? <Chat />: <Navigate to='/login' />}  />
           <Route
           path="/login"
