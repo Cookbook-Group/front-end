@@ -2,17 +2,22 @@ import React from 'react';
 import { useState,useEffect } from 'react/cjs/react.development';
 import Post from '../post/Post';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Follow from '../Follow/Follow';
 import { useNavigate } from 'react-router-dom'
 import SideBar from '../SideBar/SideBar';
 import './Feed.css'
-
 import UserAllRecipes from '../UserAllRecipes/UserAllRecipes';
 import UserRecipes from '../UserRecipes/UserRecipes';
+import Profile from '../Profile/Profile';
 
 
-const Feed = ({post,user,setPosts}) => {
+const Feed = ({post,user,setPosts, setUser}) => {
+
+  const [isOpen , setIsOpen] = useState(false)
+  const togglePopup = () =>{
+    setIsOpen(!isOpen)
+  }
 
   const navigate = useNavigate()
   const [userProfile, setUserProfile] = useState({})
@@ -87,7 +92,8 @@ console.log('winnie friend', userProfile)
                   "/image/foodCover.jpeg"}
                 alt=""
               />
-              <img
+              <Link to={`/profile/${user._id}`}>
+              <img 
                 className="profileUserImg"
                 src={
                   userProfile.profilePicture
@@ -95,7 +101,7 @@ console.log('winnie friend', userProfile)
                     "/image/icon_avatar.png"
                 }
                 alt=""
-              />
+              /></Link>
             </div>
             <div className="profileInfo">
               <h4 className="profileInfoName">{userProfile.username}</h4>

@@ -16,6 +16,7 @@ import UploadHome from './Components/Uploads/UploadHome'
 import Search from "./Components/Search/Search"
 
 import Edit from "./Components/Edit/Edit"
+import Profile from "./Components/Profile/Profile"
 
 
 function App() {
@@ -93,15 +94,16 @@ function App() {
 
         <Route path='/search' element={<Search posts={posts} setPosts={setPosts}/>}/>
 
-        <Route path="/posts/:id/edit" element={<Edit setPosts={setPosts} />} />
-        <Route
-
-          />
           <Route path='/uploads' element={<Uploads />}/>
           <Route path='/uploadHome' element={<UploadHome />}/>
           <Route path="/feed/:userId/posts/:id/edit" element={<Edit setPosts={setPosts} user={user} />} />
           <Route path="/posts/:id/edit" element={<Edit setPosts={setPosts} user={user} />} />
+
+          <Route path='/profile/:id' element={<Profile user={user} setUser={setUser}/>}/>
+
+
           <Route
+        
 
           path="/user/:userId"
           element={
