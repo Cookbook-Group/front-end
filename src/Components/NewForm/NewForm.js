@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import './NewForm.css'
 import Popup from '../PopUp/Popup'
 import { Navigate } from 'react-router-dom'
+import Uploads from '../Uploads/Uploads'
 
-const NewForm = ({addPost,user}) => {
+const NewForm = ({addPost,user, uploadedImageUrl, setUploadedImageUrl}) => {
   const form = {
     image: '',
     title: '',
@@ -27,7 +28,8 @@ const NewForm = ({addPost,user}) => {
       method: 'POST',
       body: JSON.stringify({
           // userId: newForm.user,
-          image: newForm.image,
+          //image: newForm.image,
+          image: uploadedImageUrl,
           title: newForm.title,
           calories: newForm.calories,
           recipes: newForm.recipes,
@@ -56,7 +58,9 @@ const NewForm = ({addPost,user}) => {
 }
 
   return (
-<form onSubmit={handleSubmit} >
+    <>
+    <Uploads uploadedImageUrl={uploadedImageUrl} setUploadedImageUrl={setUploadedImageUrl}/>
+<form onSubmit={handleSubmit}>
   <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
@@ -151,8 +155,9 @@ const NewForm = ({addPost,user}) => {
 
                       <div className="shareOption">
                           <img  className="shareIcon" src='/image/icon_image.png' alt='icon'/>
-                          <input className="shareInput" placeholder ="Add Image" name='image' id='image' type='text' onChange ={handleChange} 
-                          value={newForm.image}/>
+                
+                          <p className="shareInput" placeholder ="Add Image" name='image' id='image' type='text' onChange ={handleChange} 
+                          value={uploadedImageUrl}/>
                       </div>
                
                       <div className="shareOption">
@@ -201,6 +206,7 @@ const NewForm = ({addPost,user}) => {
           handleClose={togglePopup}
            />} 
   </form>
+  </>
   )
 }
 

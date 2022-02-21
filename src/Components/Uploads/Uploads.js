@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const Upload = () => {
+const Upload = ({ uploadedImageUrl, setUploadedImageUrl }) => {
   const [previewSource, setPreviewSource] = useState("");
   const [fileInputState, setFileInputState] = useState("");
   const [selectedFile, setSelectedFile] = useState("");
@@ -21,34 +21,29 @@ const Upload = () => {
     };
   };
 
-  const handleSubmitFile = (e) => {
+  const handleSubmitFile = async (e) => {
     e.preventDefault();
     if (!previewSource) return;
-    uploadImage(previewSource);
+    await uploadImage(previewSource);
   };
-  const uploadImage = async (base64EncodedImage) => {
-    console.log("uploadImage")
-    try {
-      let data = new FormData()
-      data.append("file", base64EncodedImage)
-      data.append("upload_preset", "social_meal_dia")
-      data.append("cloud_name","dsruc2myl")
-      data.append("tags",["images"])
-      let res = await fetch(`https://api.cloudinary.com/v1_1/dsruc2myl/upload`, {
-        method: "POST",
-        body: data, //JSON.stringify(data),
-        //headers: { "Content-Type": "application/json" },
-      });
-      let r = res.json()
-      console.log(r)
-      setFileInputState("");
-      setPreviewSource("");
-      setSuccessMsg("Image uploaded successfully");
-    } catch (err) {
-      console.error(err);
-      setErrMsg("Something went wrong!");
-    }
-  };
+
+  const uploadImage = async (event) => {
+    console.log(`uploadImage firing`)
+    console.log(event)
+    const files=event
+    const data= new FormData()
+    data.append("file", files)
+    data.append("upload_preset", "mnn9w31h")
+
+    const response = await fetch(`${process.env.REACT_APP_CLOUDINARY_URL}/image/upload`, {
+      method: 'POST',
+      body: data
+    })
+    const resJson = await response.json()
+    console.log(resJson.secure_url)
+    setUploadedImageUrl(resJson.secure_url)
+    console.log(uploadedImageUrl)
+  }
 
   return (
     <div>
