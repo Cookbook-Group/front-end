@@ -1,0 +1,92 @@
+ .rightbarWrapper {
+    padding: 20px 20px 0 0;
+  }
+  
+  .rightbarFollowings{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .rightbarFollowing{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .rightbarFollowingImg{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .sidebar {
+    flex: 3;
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+    position: sticky;
+    top: 50px;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(179, 179, 179);
+  }
+  
+  .sidebarWrapper {
+    padding: 20px;
+  }
+  
+  .sidebarHr {
+    margin: 20px 0;
+  }
+  
+  .sidebarFriendList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .rightbarFollowButton{
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    border: none;
+    background-color: #666769;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .rightbarFollowButton:focus{
+    outline: none;
+  }
+  .shareButton1{
+    margin-top: 0;
+    margin-bottom: 10px;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: green;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 10px;
+    cursor: pointer;
+    color: white;
+}
+.shareButton1:hover{
+  background: #42b72a;
+}
+ 
+  

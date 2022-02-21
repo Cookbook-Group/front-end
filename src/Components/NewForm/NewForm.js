@@ -31,6 +31,8 @@ const NewForm = ({addPost,user}) => {
           title: newForm.title,
           calories: newForm.calories,
           recipes: newForm.recipes,
+          ingredients: newForm.ingredients,
+          instructions: newForm.instructions,
           tags: newForm.tags,
           userId: user._id,
           user: user
@@ -170,12 +172,28 @@ const NewForm = ({addPost,user}) => {
                     
                       <div className="shareOption">
                           <img className="shareIcon" src='/image/icon_recipes.png' alt='icon'/>
-                          <input className="shareInput" name='recipes' type='text' id='recipes' placeholder ="Add Recipes" 
+                          <input className="shareInput" name='recipes' type='text' id='recipes' placeholder ="Add Recipe Name" 
                           onChange ={handleChange} 
                           value={newForm.recipes}/>
                       </div>
+
+                      <div className="shareOption">
+                          <img className="shareIcon" src='/image/icon_list.png' alt='icon'/>
+                          <input className="shareInput" name='ingredients' type='text' id='ingredients' placeholder ="Add Ingredients" 
+                          onChange ={handleChange} 
+                          value={newForm.ingredients}/>
+                      </div>
+
+                      <div className="shareOption">
+                          <img className="shareIcon" src='/image/icon_howTo.png' alt='icon'/>
+                          <input className="shareInput" name='nstructions' type='text' id='instructions' placeholder ="Add Instructions" 
+                          onChange ={handleChange} 
+                          value={newForm.instructions}/>
+                      </div>
+                      
+                    </div>
                      
-                  </div>
+                  
                   <input className="shareButton" type="submit" value='POST'  />
                   {/* <button type='submit' className="shareButton">POST</button> */}
               </div>
