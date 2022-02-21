@@ -136,7 +136,7 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+This social meal-dia app can be use to share food images, calories, ingredience, and recipies with other users.  You also have the ability to like recepies, and follow other users.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
