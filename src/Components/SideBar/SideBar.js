@@ -10,7 +10,7 @@ const SideBar = ({currentUser,userProfile}) => {
 
     const getFriends = async () => {
         try {
-            const friendsList = await axios.get(`${process.env.REACT_APP_backendURI}users/friends/${currentUser._id}`)
+            const friendsList = await axios.get(`${process.env.REACT_APP_backendURI}users/friends/${userProfile._id}`)
             setFriends(friendsList.data)
         } catch (err) {
             console.log(err)
@@ -28,7 +28,7 @@ const SideBar = ({currentUser,userProfile}) => {
       <div className="sidebarWrapper">
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
-        <h2>{currentUser.username} following</h2>
+        <h2>following</h2>
         <div className="rightbarFollowings">
             {friends.map((friend) => (
              <Link
