@@ -12,6 +12,9 @@ import { useEffect, useState } from "react"
 import User from "./Components/User"
 import Uploads from './Components/Uploads/Uploads';
 import UploadHome from './Components/Uploads/UploadHome'
+
+import Search from "./Components/Search/Search"
+
 import Edit from "./Components/Edit/Edit"
 
 
@@ -84,12 +87,22 @@ function App() {
           <Route
           path="/login"
           element={user ? <Navigate to={`/feed/${user._id}`}/> : <Login setUser={setUser} login={login} message={message}/>}
+
+        />
+
+
+        <Route path='/search' element={<Search posts={posts} setPosts={setPosts}/>}/>
+
+        <Route path="/posts/:id/edit" element={<Edit setPosts={setPosts} />} />
+        <Route
+
           />
           <Route path='/uploads' element={<Uploads />}/>
           <Route path='/uploadHome' element={<UploadHome />}/>
           <Route path="/feed/:userId/posts/:id/edit" element={<Edit setPosts={setPosts} user={user} />} />
           <Route path="/posts/:id/edit" element={<Edit setPosts={setPosts} user={user} />} />
           <Route
+
           path="/user/:userId"
           element={
             <User
