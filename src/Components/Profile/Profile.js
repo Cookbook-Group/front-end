@@ -3,8 +3,10 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react/cjs/react.development'
 import Popup from '../PopUp/Popup'
+import Upload from '../Uploads/Uploads'
 
-const Profile = ({user,setUser,setUserProfile}) => {
+const Profile = ({user,setUser,setUserProfile, uploadedImageUrl, setUploadedImageUrl}) => {
+    console.log(`uploadedImageUrl is ${uploadedImageUrl}`)
     const [isOpen , setIsOpen] = useState(false)
     let [editUserPic, setEditUserPic] = useState({user})
     const navigate = useNavigate()
@@ -22,7 +24,9 @@ const Profile = ({user,setUser,setUserProfile}) => {
 
   let handleSubmit = (e) => {
       e.preventDefault()
-      axios.put(`${process.env.REACT_APP_backendURI}users/${id}`, editUserPic)
+      axios.put(`${process.env.REACT_APP_backendURI}users/${id}`, {
+        profilePicture: uploadedImageUrl
+      })
       .then((res) => {
           setUser(res.data)
         //   setUserProfile(res.data)
@@ -35,6 +39,8 @@ const Profile = ({user,setUser,setUserProfile}) => {
   }
 
   return (
+    <>
+    
       <form onSubmit={handleSubmit} afterSubmit={() => navigate('/feed/:id')}>
           <img 
                type="button"
@@ -63,7 +69,7 @@ const Profile = ({user,setUser,setUserProfile}) => {
                     type='text'
                     name='profilePicture'
                     id='profilePicture'
-                    value={editUserPic.profilePicture}/>
+                    value={uploadedImageUrl}/>
                 </div>
 
                 <input className="shareButton" type="submit" value='POST'  />
@@ -72,6 +78,7 @@ const Profile = ({user,setUser,setUserProfile}) => {
             handleClose={togglePopup}
        />}
       </form>
+      </>
   )
 }
 
