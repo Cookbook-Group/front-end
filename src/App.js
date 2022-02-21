@@ -101,7 +101,7 @@ function App() {
           <Route path="/feed/:userId/posts/:id/edit" element={<Edit setPosts={setPosts} user={user} />} />
           <Route path="/posts/:id/edit" element={<Edit setPosts={setPosts} user={user} />} />
 
-          <Route path='/profile/:id' element={<Profile user={user} setUser={setUser}/>}/>
+          <Route path='/profile/:id' element={<Profile user={user} setUser={setUser} uploadedImageUrl={uploadedImageUrl} setUploadedImageUrl={setUploadedImageUrl}/>}/>
 
 
           <Route

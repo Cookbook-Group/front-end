@@ -29,7 +29,6 @@ const Upload = ({ uploadedImageUrl, setUploadedImageUrl }) => {
 
   const uploadImage = async (event) => {
     console.log(`uploadImage firing`)
-    console.log(event)
     const files=event
     const data= new FormData()
     data.append("file", files)
