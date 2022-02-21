@@ -22,6 +22,7 @@ import NewForm from "./Components/NewForm/NewForm"
 import { getDefaultNormalizer } from "@testing-library/dom"
 import Uploads from './Components/Uploads/Uploads';
 import UploadHome from './Components/Uploads/UploadHome'
+import Search from "./Components/Search/Search"
 
 
 import Edit from "./Components/Edit/Edit"
@@ -102,7 +103,10 @@ function App({ postData, userData }) {
           element={user ? <Navigate to={`/feed/${user._id}`}/> : <Login setUser={setUser} login={login} message={message}/>}
         />
          <Route path='/uploads' element={<Uploads />}/>
-          <Route path='/uploadHome' element={<UploadHome />}/>
+         <Route path='/uploadHome' element={<UploadHome />}/>
+
+
+        <Route path='/search' element={<Search posts={posts} setPosts={setPosts}/>}/>
 
         <Route path="/posts/:id/edit" element={<Edit setPosts={setPosts} />} />
         <Route
