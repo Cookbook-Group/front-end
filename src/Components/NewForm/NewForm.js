@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import './NewForm.css'
 import Popup from '../PopUp/Popup'
 import { Navigate } from 'react-router-dom'
+import Uploads from '../Uploads/Uploads'
 
-const NewForm = ({addPost,user}) => {
+const NewForm = ({addPost,user, uploadedImageUrl, setUploadedImageUrl}) => {
   const form = {
     image: '',
     title: '',
@@ -27,10 +28,13 @@ const NewForm = ({addPost,user}) => {
       method: 'POST',
       body: JSON.stringify({
           // userId: newForm.user,
-          image: newForm.image,
+          //image: newForm.image,
+          image: uploadedImageUrl,
           title: newForm.title,
           calories: newForm.calories,
           recipes: newForm.recipes,
+          ingredients: newForm.ingredients,
+          instructions: newForm.instructions,
           tags: newForm.tags,
           userId: user._id,
           user: user
@@ -54,7 +58,9 @@ const NewForm = ({addPost,user}) => {
 }
 
   return (
-<form onSubmit={handleSubmit} >
+    <>
+    <Uploads uploadedImageUrl={uploadedImageUrl} setUploadedImageUrl={setUploadedImageUrl}/>
+<form onSubmit={handleSubmit}>
   <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
@@ -149,8 +155,9 @@ const NewForm = ({addPost,user}) => {
 
                       <div className="shareOption">
                           <img  className="shareIcon" src='/image/icon_image.png' alt='icon'/>
-                          <input className="shareInput" placeholder ="Add Image" name='image' id='image' type='text' onChange ={handleChange} 
-                          value={newForm.image}/>
+                
+                          <p className="shareInput" placeholder ="Add Image" name='image' id='image' type='text' onChange ={handleChange} 
+                          value={uploadedImageUrl}/>
                       </div>
                
                       <div className="shareOption">
@@ -170,12 +177,28 @@ const NewForm = ({addPost,user}) => {
                     
                       <div className="shareOption">
                           <img className="shareIcon" src='/image/icon_recipes.png' alt='icon'/>
-                          <input className="shareInput" name='recipes' type='text' id='recipes' placeholder ="Add Recipes" 
+                          <input className="shareInput" name='recipes' type='text' id='recipes' placeholder ="Add Recipe Name" 
                           onChange ={handleChange} 
                           value={newForm.recipes}/>
                       </div>
+
+                      <div className="shareOption">
+                          <img className="shareIcon" src='/image/icon_list.png' alt='icon'/>
+                          <input className="shareInput" name='ingredients' type='text' id='ingredients' placeholder ="Add Ingredients" 
+                          onChange ={handleChange} 
+                          value={newForm.ingredients}/>
+                      </div>
+
+                      <div className="shareOption">
+                          <img className="shareIcon" src='/image/icon_howTo.png' alt='icon'/>
+                          <input className="shareInput" name='nstructions' type='text' id='instructions' placeholder ="Add Instructions" 
+                          onChange ={handleChange} 
+                          value={newForm.instructions}/>
+                      </div>
+                      
+                    </div>
                      
-                  </div>
+                  
                   <input className="shareButton" type="submit" value='POST'  />
                   {/* <button type='submit' className="shareButton">POST</button> */}
               </div>
@@ -183,6 +206,7 @@ const NewForm = ({addPost,user}) => {
           handleClose={togglePopup}
            />} 
   </form>
+  </>
   )
 }
 
