@@ -30,10 +30,10 @@
 <br />
 <div align="center">
   <a href="https://github.com/cookbook-group/front-end">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://res.cloudinary.com/dsruc2myl/image/upload/v1645483491/Project_3/zjjjr772beeecwbond4u.webp" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Social Meal-Dia</h3>
 
   <p align="center">
     project_description
@@ -82,7 +82,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://res.cloudinary.com/dsruc2myl/image/upload/c_scale,w_993/v1645480813/Project_3/q2ezmpgdbacfz95sr4ch.png)
+[![Screen Shot][product-screenshot]](https://res.cloudinary.com/dsruc2myl/image/upload/c_scale,w_993/v1645480813/Project_3/q2ezmpgdbacfz95sr4ch.png)
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
 
@@ -192,9 +192,9 @@ Nicholas Tonelli - [@twitter_handle](https://twitter.com/twitter_handle) - nicho
 
 Tamara Wilburn- [@linkedin handle] (https://www.linkedin.com/in/tamara-wilburn-905842227/ - email@email_client.com
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Voravadee Rocco - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Winnie Bolm  - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
 Project Link: [https://github.com/cookbook-group/front-end](https://github.com/cookbook-group/front-end)
 
@@ -205,8 +205,8 @@ Project Link: [https://github.com/cookbook-group/front-end](https://github.com/c
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
+* [Voravadee Rocco](for conceptulizing/bringing to life of the app)
+* [Winnie Bolm](for conceptulizing/bringing to life of the app)
 * []()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
