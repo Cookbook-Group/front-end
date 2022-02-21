@@ -190,7 +190,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Nicholas Tonelli - [@twitter_handle](https://twitter.com/twitter_handle) - nicholasevantonelli@gmail.com
 
-Tamara - [@linkedin handle](https://linkedin.com/https://www.linkedin.com/in/tamara-wilburn-905842227/ - email@email_client.com
+Tamara Wilburn- [@linkedin handle] (https://www.linkedin.com/in/tamara-wilburn-905842227/ - email@email_client.com
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
