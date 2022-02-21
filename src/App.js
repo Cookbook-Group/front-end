@@ -27,6 +27,8 @@ function App() {
   const [users, setUsers] = useState()
   const [foundUser, setFoundUser] = useState()
 
+  const [uploadedImageUrl, setUploadedImageUrl] = useState("")
+
   function getData() {
     axios.get(`${process.env.REACT_APP_backendURI}posts`).then((res) => {
       setPosts(
@@ -79,9 +81,9 @@ function App() {
       {/* <button onClick={logout}>logout</button>  */}
       <Nav user={user} />
       <Routes>
-          <Route path="/" element={user ? <Home posts={posts} user={user} addPost={addPost} setPosts={setPosts}/>: <Navigate to='/login' />}  />
+          <Route path="/" element={user ? <Home posts={posts} user={user} addPost={addPost} setPosts={setPosts} uploadedImageUrl={uploadedImageUrl} setUploadedImageUrl={setUploadedImageUrl}/>: <Navigate to='/login' />}  />
 
-          <Route path="/new" element={user ? <New addPost={addPost} user={user}/> : <Navigate to='/login' />} />
+          <Route path="/new" element={user ? <New addPost={addPost} user={user} uploadedImageUrl={uploadedImageUrl} setUploadedImageUrl={setUploadedImageUrl}/> : <Navigate to='/login' />} />
           <Route path="/save" element={ user? <SaveDishes />: <Navigate to='/login' />}  />
           <Route path="/feed/:id" element={user ? <Feed post={posts} user={user} setPosts={setPosts} setUser={setUser}/>: <Navigate to='/login' />}  />
           <Route path="/chat" element={user ? <Chat />: <Navigate to='/login' />}  />
