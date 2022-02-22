@@ -16,7 +16,6 @@ const Upload = ({ uploadedImageUrl, setUploadedImageUrl }) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      console.log(reader.result)
       setPreviewSource(reader.result);
     };
   };
@@ -28,8 +27,6 @@ const Upload = ({ uploadedImageUrl, setUploadedImageUrl }) => {
   };
 
   const uploadImage = async (event) => {
-    console.log(`uploadImage firing`)
-    console.log(event)
     const files=event
     const data= new FormData()
     data.append("file", files)
@@ -40,9 +37,7 @@ const Upload = ({ uploadedImageUrl, setUploadedImageUrl }) => {
       body: data
     })
     const resJson = await response.json()
-    console.log(resJson.secure_url)
     setUploadedImageUrl(resJson.secure_url)
-    console.log(uploadedImageUrl)
   }
 
   return (

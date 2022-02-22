@@ -4,17 +4,6 @@ import { useState,useEffect  } from 'react/cjs/react.development'
 import '../post/Post.css'
 
 const Recipe = ({post,addLikes}) => {
-  // const [recipe,setRecipe] =useState()
-
-  // const fetchRecipe =() => {
-  //  axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${post.title}`)
-  //   .then(res => setRecipe(res.data))
-  // }
-
-  // useEffect(() => {
-  //   fetchRecipe()
-  // },[recipe])
-console.log(post)
 
   return (
     <div className="post">
