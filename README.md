@@ -1,9 +1,9 @@
-# back-end 
-The Premise: Instagram for food, post pictures with recipes, get ratings and comments, search for recipes by parameters.
+# Front-end
+The Premise: Instagram for food, post pictures with recipes, get ratings and comments, search for recipes by parameters, like and follow other users!
 
 ## Working Titles
 
-* Social-mealdia
+* Social Meal-dia
 
 
 ## MVP 
