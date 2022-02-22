@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import './SideBar.css'
 
 
-const SideBar = ({currentUser,userProfile}) => {
+const SideBar = ({currentUser,userProfile,setUserProfile}) => {
     const [friends, setFriends] = useState([])
 
     const getFriends = async () => {
@@ -34,12 +34,12 @@ const SideBar = ({currentUser,userProfile}) => {
              <Link
              to={`/feed/${friend._id}`}
              style={{ textDecoration: "none", color:'black'}}
-              >
-             <div className="rightbarFollowing">
+             key={friend._id}>
+             <div className="rightbarFollowing" >
                 <img
                 src={
                 friend.profilePicture
-                  ?  friend.profilePicture
+                  ?  friend.profilePicture 
                   :  "/image/icon_avatar.png"
                 }
                  alt=""

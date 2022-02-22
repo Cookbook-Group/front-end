@@ -49,7 +49,7 @@ const Profile = ({user,setUser,setUserProfile, uploadedImageUrl, setUploadedImag
           <div className="profileRightTop">
           <div className="profileCover">
             <CoverProfile user={user} setUser={setUser} uploadedImageUrl={uploadedImageUrl} setUploadedImageUrl={setUploadedImageUrl} />
-              <img 
+              <img style={{cursor:'pointer'}}
                type="button"
                onClick={togglePopup}
                 className="profileUserImg"

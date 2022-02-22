@@ -47,7 +47,6 @@ function App() {
   const login = (user) => {
     if (user && user.username !== undefined) {
       setUser(user)
-      console.log(user)
       setMessage(`Log in Success`)
     } else {
       setMessage(`Wrong username or password`)

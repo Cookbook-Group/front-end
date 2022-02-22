@@ -16,7 +16,7 @@ const SearchResults = ({posts}) => {
         {posts.map((post) => {
           return (
            
-          <ResultsTable post={post} key={post.title}/>
+          <ResultsTable post={post} key={post._id}/>
       
           )}
         )}

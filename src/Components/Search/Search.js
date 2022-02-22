@@ -37,10 +37,10 @@ const Search = ({posts,setPosts}) => {
     //   };
     //   if (query.length === 0 || query.length > 2) fetchData();
     // }, [query]);
-    console.log(posts)
+  
   return (
 <div className="app">
-    <h1>Search Results</h1>
+    <h1>Search Meal</h1>
         <input
           className="search"
           placeholder="Search..."
