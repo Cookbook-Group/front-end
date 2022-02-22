@@ -20,7 +20,7 @@ const SideBar = ({currentUser,userProfile,setUserProfile}) => {
     useEffect(() => {
         getFriends()
     },[userProfile])
-    console.log('ooooooo',friends)
+
 
   return (
 
@@ -34,12 +34,12 @@ const SideBar = ({currentUser,userProfile,setUserProfile}) => {
              <Link
              to={`/feed/${friend._id}`}
              style={{ textDecoration: "none", color:'black'}}
-              >
-             <div className="rightbarFollowing">
+             key={friend._id}>
+             <div className="rightbarFollowing" >
                 <img
                 src={
                 friend.profilePicture
-                  ?  friend.profilePicture
+                  ?  friend.profilePicture 
                   :  "/image/icon_avatar.png"
                 }
                  alt=""
