@@ -9,8 +9,6 @@ const PostsList = ({postData,user,setPosts}) => {
 
   return <div>
       {postData.map((post) =>{
-      
-
          return <Post post={post} user={user} setPosts={setPosts} key={post.title} />
       })}
       
