@@ -36,7 +36,7 @@ const CoverProfile = ({user,setUser,setUserProfile, uploadedImageUrl, setUploade
   }
   return (
     <div>
-              <img
+              <img style={{cursor:'pointer'}}
               type="button"
               onClick={togglePopup}
                 className="profileCoverImg"
