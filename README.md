@@ -1,3 +1,72 @@
+# back-end 
+The Premise: Instagram for food, post pictures with recipes, get ratings and comments, search for recipes by parameters.
+
+## Working Titles
+
+* Social-mealdia
+
+
+## MVP 
+
+* Full CRUD
+* MERN
+* Working frontend react and backend componenets
+
+## Stretch Goals
+
+
+* Link posts and users for edit permissions/ delete permissions
+* Add comments linked to users, ratings/interactions
+* Advanced search features (tag searching, ingredients, calorie searching, categories...)
+* Multer.io for pictures of food.
+* Social media buttons...guugghh
+
+## User Stories
+
+* As a User, I can upload recipes with pictures
+* As a User, I can rate recipes
+* As a User, I want to be able to find reicpes by parameters
+* As a User, I want to be able to interact with users*
+* As a User, I want to be able to filter recipes
+
+## Models
+
+Posts;
+
+[
+    {
+        image:
+        name:
+        calories:
+        recipes: [
+         ingredients: []
+         instructions: []
+         recipeFacts: [
+            servings:
+            cooktime:
+         ]
+                 ]
+        timestamp:
+        likes: [+,-]
+    }
+]
+
+Users;
+
+[
+    email: ,
+    username: ,
+    password: ,
+    profile*:[
+      profileImage:,
+      about:,
+      name:
+    ]    
+]
+
+Basic frontend, Nick
+Basic Backend, Tamara
+
 <div id="top"></div>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -17,12 +86,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+
 
 
 
@@ -190,11 +254,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Nicholas Tonelli - [@twitter_handle](https://twitter.com/twitter_handle) - nicholasevantonelli@gmail.com
 
-Tamara Wilburn- [@linkedin handle] (https://www.linkedin.com/in/tamara-wilburn-905842227/ - email@email_client.com
+Tamara Wilburn- [@linkedin handle] (https://www.linkedin.com/in/tamara-wilburn-905842227/ - TamaraAndreaWilburn@gmail.com
 
 Voravadee Rocco - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
-Winnie Bolm  - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Winnie Bolm  - [@linkedin_handle](https://www.linkedin.com/in/winniebolm/) - winnie.bolm@gmail.com
 
 Project Link: [https://github.com/cookbook-group/front-end](https://github.com/cookbook-group/front-end)
 
@@ -207,7 +271,7 @@ Project Link: [https://github.com/cookbook-group/front-end](https://github.com/c
 
 * [Voravadee Rocco](for conceptulizing/bringing to life of the app)
 * [Winnie Bolm](for conceptulizing/bringing to life of the app)
-* []()
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
