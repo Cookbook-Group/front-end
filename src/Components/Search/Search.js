@@ -40,7 +40,7 @@ const Search = ({posts,setPosts}) => {
   
   return (
 <div className="app">
-    <h1>Search Results</h1>
+    <h1>Search Meal</h1>
         <input
           className="search"
           placeholder="Search..."
