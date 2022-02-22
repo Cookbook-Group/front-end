@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState,useEffect } from 'react/cjs/react.development';
-import Post from '../post/Post';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import Follow from '../Follow/Follow';
@@ -8,8 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import SideBar from '../SideBar/SideBar';
 import './Feed.css'
 import UserAllRecipes from '../UserAllRecipes/UserAllRecipes';
-import UserRecipes from '../UserRecipes/UserRecipes';
-import Profile from '../Profile/Profile';
+
 
 
 const Feed = ({post,user,setPosts, setUser}) => {
@@ -26,7 +24,6 @@ const Feed = ({post,user,setPosts, setUser}) => {
   function getUserProfile() {
     axios.get(`${process.env.REACT_APP_backendURI}users/${id}`).then((res) => {
       setUserProfile(res.data)
-      console.log('hi',res.data)
     })
   }
 
@@ -39,7 +36,7 @@ const Feed = ({post,user,setPosts, setUser}) => {
     return  post.userId === userProfile._id
     
   })
-console.log(userPosts)
+
 
 const [follow, setFollow] = useState(user.followings.includes(userProfile?._id))
 
@@ -74,9 +71,6 @@ const handleClickFollow = async (e) => {
   }
 }
        
-    
-console.log('winnie use',user)
-console.log('winnie friend', userProfile)
 
   return (
     <div className='grid-container'>

@@ -44,7 +44,6 @@ const NewForm = ({addPost,user, uploadedImageUrl, setUploadedImageUrl}) => {
       } 
     })
     let post = await response.json()
-    console.log(post)
     addPost(post)
     setNewForm('')
     togglePopup()
