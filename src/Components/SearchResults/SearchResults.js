@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import ResultsDetails from '../ResultsDetails/ResultsDetails';
 import ResultsTable from '../ResultsTable/ResultsTable'
+import './SearchResults.css'
 
 const SearchResults = ({posts}) => {
     //   const [query, setQuery] = useState("");
@@ -10,15 +12,16 @@ const SearchResults = ({posts}) => {
     //   )
     // }
   return (
-    <div>
+    <div className='container_search'>
         {posts.map((post) => {
-          return<ResultsTable post={post} key={post.title}/>
-        }
-        )
-        }
+          return (
+           
+          <ResultsTable post={post} key={post.title}/>
+      
+          )}
+        )}
 
     </div>
-
   )
 }
 

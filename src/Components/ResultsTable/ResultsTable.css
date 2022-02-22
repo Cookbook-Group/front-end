@@ -1,0 +1,55 @@
+.card_search {
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    display: grid;
+    overflow: hidden;
+    grid-template-rows: 2fr 1fr;
+}
+
+.card-image_search {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+  
+.card-title_search {
+    background-color: #276074;
+    color: rgb(255, 255, 255);
+    border-radius: 0 0 1rem 1rem;
+    margin: 0;
+    /* padding: 1rem; */
+    text-align: center;
+}
+
+.card-title_search_h3 {
+    font-weight: 300;
+  }
+
+.search_p {
+    color: white;
+}
+
+.image-size{
+    width: auto;
+    height: 300px;
+    object-fit: cover;
+  }
+
+.shareProfileImg_search {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.postTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.postTopLeft {
+    display: flex;
+    align-items: center;
+}

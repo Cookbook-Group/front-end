@@ -17,6 +17,7 @@ import Search from "./Components/Search/Search"
 
 import Edit from "./Components/Edit/Edit"
 import Profile from "./Components/Profile/Profile"
+import ResultsDetails from "./Components/ResultsDetails/ResultsDetails"
 
 
 function App() {
@@ -87,11 +88,14 @@ function App() {
           <Route path="/save" element={ user? <SaveDishes />: <Navigate to='/login' />}  />
           <Route path="/feed/:id" element={user ? <Feed post={posts} user={user} setPosts={setPosts} setUser={setUser}/>: <Navigate to='/login' />}  />
           <Route path="/chat" element={user ? <Chat />: <Navigate to='/login' />}  />
+          {/* <Route path="/search" element={user ? <Search post={posts} setPosts={setPosts} />: <Navigate to='/login' />}  /> */}
           <Route
           path="/login"
           element={user ? <Navigate to={`/feed/${user._id}`}/> : <Login setUser={setUser} login={login} message={message}/>}
 
         />
+
+        <Route path='/post' element={<ResultsDetails user={user} setPosts={setPosts}/>}/>
 
 
         <Route path='/search' element={<Search posts={posts} setPosts={setPosts}/>}/>
