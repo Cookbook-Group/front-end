@@ -13,3 +13,10 @@
 .search{
 	width: 500px;
 }
+
+@media (max-width:600px) {
+	.search{
+		width: auto;
+	}
+	
+  }

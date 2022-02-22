@@ -86,4 +86,8 @@
   .shareButton:hover{
     background: #42b72a;
   }
-
+  @media (max-width:600px) {
+    .shareIcon{
+      width: 20px;
+  }
+  }
