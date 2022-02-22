@@ -44,7 +44,6 @@ const NewForm = ({addPost,user, uploadedImageUrl, setUploadedImageUrl}) => {
       } 
     })
     let post = await response.json()
-    console.log(post)
     addPost(post)
     setNewForm('')
     togglePopup()
@@ -59,22 +58,24 @@ const NewForm = ({addPost,user, uploadedImageUrl, setUploadedImageUrl}) => {
 
   return (
     <>
-    <Uploads uploadedImageUrl={uploadedImageUrl} setUploadedImageUrl={setUploadedImageUrl}/>
-<form onSubmit={handleSubmit}>
+ 
   <div className="share">
       <div className="shareWrapper">
-        <div className="shareTop">
-          <img className="shareProfileImg" src={user.profilePicture
+      <div className="shareTop">
+          <img className="shareProfileImg1" src={user.profilePicture
                     ?  user.profilePicture:
                     "/image/icon_avatar.png"} alt="" />
-          <input 
+         <div className="shareInput">
+           <Uploads uploadedImageUrl={uploadedImageUrl} setUploadedImageUrl={setUploadedImageUrl}/>
+         </div>
+         <input 
             value="What's your MEAL ?"
             className="shareInput"
             type="button"
             onClick={togglePopup}
           />
       </div>
-
+      
         <hr className="shareHr"/>
         <div className="shareBottom">
             <div className="shareOptions">
@@ -132,6 +133,7 @@ const NewForm = ({addPost,user, uploadedImageUrl, setUploadedImageUrl}) => {
 {/* /////////////////////////////////// Pop Up info//////////////////////////////////// */}
     {isOpen && <Popup 
             content={<>
+            <form onSubmit={handleSubmit}>
                 <b>Add Your Post</b>
                 <hr className="shareHr"/>
                 <div className="shareTop">
@@ -202,10 +204,11 @@ const NewForm = ({addPost,user, uploadedImageUrl, setUploadedImageUrl}) => {
                   <input className="shareButton" type="submit" value='POST'  />
                   {/* <button type='submit' className="shareButton">POST</button> */}
               </div>
-            </>}
+              </form>
+            </> }
           handleClose={togglePopup}
            />} 
-  </form>
+ 
   </>
   )
 }

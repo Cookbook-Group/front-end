@@ -33,11 +33,11 @@ const Nav = ({user}) => {
                 </Link>
               </li>
 
-              {/* <li>
-                <Link to='/feed/:id'>
-                  <img className='icon' src='/image/icon_heart.png' alt='heart'/>
+              <li>
+                <Link to='/search'>
+                  <img className='icon' src='/image/icon_search.png' alt='heart'/>
                 </Link>
-              </li> */}
+              </li>
 
               <li>
                 <Link to='/save'>
@@ -53,7 +53,7 @@ const Nav = ({user}) => {
               <li>  
                 {user && user.username !== undefined ? 
                 <Link  to={`/feed/${user._id}`}>
-                  <img className='icon' src={user.profilePicture
+                  <img className='shareProfileImg' src={user.profilePicture
                     ?  user.profilePicture:
                     "/image/icon_avatar.png"} alt="profilePic" />
                 </Link>

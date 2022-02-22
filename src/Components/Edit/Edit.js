@@ -11,7 +11,6 @@ const Edit = ({setPosts, user}) => {
   function getPost() {
     axios.get(`${process.env.REACT_APP_backendURI}posts/${id}`).then((res) => {
       setPost(res.data)
-      console.log('hi',res.data)
     })
   }
 

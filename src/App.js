@@ -17,6 +17,7 @@ import Search from "./Components/Search/Search"
 
 import Edit from "./Components/Edit/Edit"
 import Profile from "./Components/Profile/Profile"
+import ResultsDetails from "./Components/ResultsDetails/ResultsDetails"
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -46,7 +47,6 @@ function App() {
   const login = (user) => {
     if (user && user.username !== undefined) {
       setUser(user)
-      console.log(user)
       setMessage(`Log in Success`)
     } else {
       setMessage(`Wrong username or password`)
@@ -80,6 +80,7 @@ function App() {
             )
           }
         />
+
 
         <Route
           path="/new"
@@ -120,6 +121,7 @@ function App() {
           element={user ? <Chat /> : <Navigate to="/login" />}
         />
         <Route
+
           path="/login"
           element={
             user ? (
@@ -129,11 +131,21 @@ function App() {
             )
           }
         />
+        
+         {/* <Route path="/search" element={user ? <Search post={posts} setPosts={setPosts} />: <Navigate to='/login' />}  /> */}
+
+
+        <Route 
+          path='/post' 
+          element={<ResultsDetails user={user} setPosts={setPosts}/>}
+          />
+
 
         <Route
           path="/search"
           element={<Search posts={posts} setPosts={setPosts} />}
         />
+
 
         <Route path="/uploads" element={<Uploads />} />
         <Route path="/uploadHome" element={<UploadHome />} />

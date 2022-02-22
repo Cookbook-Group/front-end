@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState,useEffect } from 'react/cjs/react.development';
-import Post from '../post/Post';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import Follow from '../Follow/Follow';
@@ -8,8 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import SideBar from '../SideBar/SideBar';
 import './Feed.css'
 import UserAllRecipes from '../UserAllRecipes/UserAllRecipes';
-import UserRecipes from '../UserRecipes/UserRecipes';
-import Profile from '../Profile/Profile';
+
 
 
 const Feed = ({post,user,setPosts, setUser}) => {
@@ -26,20 +24,19 @@ const Feed = ({post,user,setPosts, setUser}) => {
   function getUserProfile() {
     axios.get(`${process.env.REACT_APP_backendURI}users/${id}`).then((res) => {
       setUserProfile(res.data)
-      console.log('hi',res.data)
     })
   }
 
   useEffect(() => {
     getUserProfile()
-  },[])
+  },[id])
 
 
   let userPosts = post.filter((post) => {
     return  post.userId === userProfile._id
     
   })
-console.log(userPosts)
+
 
 const [follow, setFollow] = useState(user.followings.includes(userProfile?._id))
 
@@ -74,9 +71,6 @@ const handleClickFollow = async (e) => {
   }
 }
        
-    
-console.log('winnie use',user)
-console.log('winnie friend', userProfile)
 
   return (
     <div className='grid-container'>
@@ -92,6 +86,8 @@ console.log('winnie friend', userProfile)
                   "/image/foodCover.jpeg"}
                 alt=""
               />
+              {
+                user._id === userProfile._id ?
               <Link to={`/profile/${user._id}`}>
               <img 
                 className="profileUserImg"
@@ -101,7 +97,17 @@ console.log('winnie friend', userProfile)
                     "/image/icon_avatar.png"
                 }
                 alt=""
-              /></Link>
+              /></Link> : 
+              <img 
+                className="profileUserImg"
+                src={
+                  userProfile.profilePicture
+                    ?  userProfile.profilePicture:
+                    "/image/icon_avatar.png"
+                }
+                alt=""
+              />
+              }
             </div>
             <div className="profileInfo">
               <h4 className="profileInfoName">{userProfile.username}</h4>
@@ -115,7 +121,7 @@ console.log('winnie friend', userProfile)
           </div>
           </div>
           <div className='box2' >
-          <SideBar currentUser={user} userProfile={userProfile}/>
+          <SideBar currentUser={user} userProfile={userProfile} setUserProfile={setUserProfile} />
           </div>
           <div className='box3'>
         <UserAllRecipes posts={userPosts} user={userProfile} setPosts={setPosts} currentUser={user}/> 
