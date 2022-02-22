@@ -73,36 +73,33 @@ The Premise: Instagram for food, post pictures with recipes, get ratings and com
 
 ## Screen Shot
 * Log In page
-[![Screen Shot](![D33BAF42-443A-4E59-A0EC-D6F69DD6C6C3_1_105_c](https://user-images.githubusercontent.com/91036693/155211955-cd24088c-75bd-446c-bfc0-9b8d8d837a70.jpeg)
-)
+![D33BAF42-443A-4E59-A0EC-D6F69DD6C6C3_1_105_c](https://user-images.githubusercontent.com/91036693/155211955-cd24088c-75bd-446c-bfc0-9b8d8d837a70.jpeg)
 
 * Home page
-[![Screen Shot](![2EA51F8A-2920-4FF3-A747-68D0BE157A3A_1_105_c](https://user-images.githubusercontent.com/91036693/155211996-394594d3-614e-4e34-b7bb-cbd62de9f78f.jpeg)
-)
+![2EA51F8A-2920-4FF3-A747-68D0BE157A3A_1_105_c](https://user-images.githubusercontent.com/91036693/155211996-394594d3-614e-4e34-b7bb-cbd62de9f78f.jpeg)
 
 * User page
-[![Screen Shot](![FE9B52C2-DCC8-41F5-B50E-5DF558330A69_1_105_c](https://user-images.githubusercontent.com/91036693/155212019-c2d5b533-73bd-4517-9cc6-57fd15eced17.jpeg)
-)
+![FE9B52C2-DCC8-41F5-B50E-5DF558330A69_1_105_c](https://user-images.githubusercontent.com/91036693/155212019-c2d5b533-73bd-4517-9cc6-57fd15eced17.jpeg)
 
-[![Screen Shot](![DB944E7A-A330-495A-A17B-C9EB1EB8911D_1_105_c](https://user-images.githubusercontent.com/91036693/155212167-0a868274-1e54-447c-b980-a086d66a68fb.jpeg)
-)
+
+![DB944E7A-A330-495A-A17B-C9EB1EB8911D_1_105_c](https://user-images.githubusercontent.com/91036693/155212167-0a868274-1e54-447c-b980-a086d66a68fb.jpeg)
 
 
 * Show recipes page
-[![Screen Shot](![44EFC679-5F6C-48D0-8BBC-F119A66254D8_1_105_c](https://user-images.githubusercontent.com/91036693/155212184-838de191-b02e-4800-8d6e-2bd5b8138161.jpeg)
-)
+![44EFC679-5F6C-48D0-8BBC-F119A66254D8_1_105_c](https://user-images.githubusercontent.com/91036693/155212184-838de191-b02e-4800-8d6e-2bd5b8138161.jpeg)
+
 
 * Search page
-[![Screen Shot](![208AC49A-D63E-4B15-AECB-DDE3D786A088_1_105_c](https://user-images.githubusercontent.com/91036693/155212206-34d8584d-87e8-49e4-a010-d1a4a0689759.jpeg)
-)
+![208AC49A-D63E-4B15-AECB-DDE3D786A088_1_105_c](https://user-images.githubusercontent.com/91036693/155212206-34d8584d-87e8-49e4-a010-d1a4a0689759.jpeg)
+
 
 ## Original Wireframes
-[![Screen Shot](<img width="1205" alt="6B782111-06E7-47DE-B724-616AA9866DAB" src="https://user-images.githubusercontent.com/91036693/155212522-c84b4095-f378-42a7-9484-c3b912b681fe.png">
-)
-[![Screen Shot](<img width="1210" alt="3B98AF00-C1AE-4CBF-A00C-2128B9DAE43D" src="https://user-images.githubusercontent.com/91036693/155212538-4420850a-eb10-4a50-91ad-ca32bd082d12.png">
-)
-[![Screen Shot](<img width="1213" alt="227F313E-D60A-4D2D-9006-D6B1CD979A1A" src="https://user-images.githubusercontent.com/91036693/155212553-8ca5c345-c70d-4350-af16-7c7a36cb18ca.png">
-)
+<img width="1205" alt="6B782111-06E7-47DE-B724-616AA9866DAB" src="https://user-images.githubusercontent.com/91036693/155212522-c84b4095-f378-42a7-9484-c3b912b681fe.png">
+
+<img width="1210" alt="3B98AF00-C1AE-4CBF-A00C-2128B9DAE43D" src="https://user-images.githubusercontent.com/91036693/155212538-4420850a-eb10-4a50-91ad-ca32bd082d12.png">
+
+<img width="1213" alt="227F313E-D60A-4D2D-9006-D6B1CD979A1A" src="https://user-images.githubusercontent.com/91036693/155212553-8ca5c345-c70d-4350-af16-7c7a36cb18ca.png">
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
