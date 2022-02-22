@@ -10,7 +10,7 @@
 <h3 align="center">Social Meal-Dia</h3>
 
   <p align="center">
-    project_description
+   a MEARN stack social media app for posting pictures of your wonderful meals
     <br />
     <a href="https://github.com/Cookbook-Group/front-end"><strong>Explore the docs »</strong></a>
     <br />
