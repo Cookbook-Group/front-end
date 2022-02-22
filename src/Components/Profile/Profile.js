@@ -6,7 +6,7 @@ import Popup from '../PopUp/Popup'
 import Upload from '../Uploads/Uploads'
 
 const Profile = ({user,setUser,setUserProfile, uploadedImageUrl, setUploadedImageUrl}) => {
-    console.log(`uploadedImageUrl is ${uploadedImageUrl}`)
+    
     const [isOpen , setIsOpen] = useState(false)
     let [editUserPic, setEditUserPic] = useState({user})
     const navigate = useNavigate()
@@ -29,7 +29,6 @@ const Profile = ({user,setUser,setUserProfile, uploadedImageUrl, setUploadedImag
       })
       .then((res) => {
           setUser(res.data)
-        //   setUserProfile(res.data)
           setEditUserPic('')
           togglePopup()
       })

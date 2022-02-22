@@ -27,22 +27,11 @@ const User = ({ setFoundUser, foundUser, users }) => {
       <header>
         <img src="" alt="" />
         <h4>{foundUser.username}</h4>
-        {/* Below code only lists the number of posts, mapping the data is found lower */}
         <p>{foundUser.posts} posts</p>
         <p>{foundUser.followers} followers</p>
         <p>{foundUser.following} following</p>
         <hr></hr>
       </header>
-
-      {/* {user.posts.map((post) => {
-        return (
-          <div>
-            <Link to="">
-              <img src={post} alt="" />
-            </Link>
-          </div>
-        )
-      })} */}
     </div>
   )
 }
