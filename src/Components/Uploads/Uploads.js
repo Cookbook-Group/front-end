@@ -42,7 +42,7 @@ const Upload = ({ uploadedImageUrl, setUploadedImageUrl }) => {
 
   return (
     <div>
-      <h1>Upload</h1>
+      <h2>Upload</h2>
       <form onSubmit={handleSubmitFile} className="form">
         <input
           type="file"
@@ -51,7 +51,7 @@ const Upload = ({ uploadedImageUrl, setUploadedImageUrl }) => {
           value={fileInputState}
           className="form-input"
         />
-        <button className="btn" type="submit">
+        <button className="shareButton"  type="submit">
           Submit
         </button>
       </form>

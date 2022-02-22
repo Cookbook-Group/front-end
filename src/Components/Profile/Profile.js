@@ -39,7 +39,7 @@ const Profile = ({user,setUser,setUserProfile, uploadedImageUrl, setUploadedImag
 
   return (
     <>
-    
+      
       <form onSubmit={handleSubmit} afterSubmit={() => navigate('/feed/:id')}>
           <img 
                type="button"
