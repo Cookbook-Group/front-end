@@ -53,7 +53,7 @@ const Nav = ({user}) => {
               <li>  
                 {user && user.username !== undefined ? 
                 <Link  to={`/feed/${user._id}`}>
-                  <img className='icon' src={user.profilePicture
+                  <img className='shareProfileImg' src={user.profilePicture
                     ?  user.profilePicture:
                     "/image/icon_avatar.png"} alt="profilePic" />
                 </Link>
