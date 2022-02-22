@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './NewForm.css'
 import Popup from '../PopUp/Popup'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import Uploads from '../Uploads/Uploads'
 
 const NewForm = ({addPost,user, uploadedImageUrl, setUploadedImageUrl}) => {
@@ -14,6 +14,7 @@ const NewForm = ({addPost,user, uploadedImageUrl, setUploadedImageUrl}) => {
   }
   const [newForm , setNewForm] = useState(form)
   const [isOpen , setIsOpen] = useState(false)
+  const navigate = useNavigate()
   // const [user , setUser] =useState(user)
 
   const togglePopup = () =>{
@@ -47,7 +48,7 @@ const NewForm = ({addPost,user, uploadedImageUrl, setUploadedImageUrl}) => {
     addPost(post)
     setNewForm('')
     togglePopup()
-    
+    navigate('/')
   }
 
   let handleChange = (e) =>{
