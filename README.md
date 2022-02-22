@@ -147,7 +147,7 @@ Basic Backend, Tamara
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Screen Shot][product-screenshot]](https://res.cloudinary.com/dsruc2myl/image/upload/c_scale,w_993/v1645480813/Project_3/q2ezmpgdbacfz95sr4ch.png)
+[![Screen Shot][product-screenshot]](https://res.cloudinary.com/dsruc2myl/image/upload/v1645493573/Project_3/gxzd1ju3js9t2nrlntkl.png)
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
 
