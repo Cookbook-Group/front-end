@@ -92,6 +92,8 @@ console.log('winnie friend', userProfile)
                   "/image/foodCover.jpeg"}
                 alt=""
               />
+              {
+                user._id === userProfile._id ?
               <Link to={`/profile/${user._id}`}>
               <img 
                 className="profileUserImg"
@@ -101,7 +103,17 @@ console.log('winnie friend', userProfile)
                     "/image/icon_avatar.png"
                 }
                 alt=""
-              /></Link>
+              /></Link> : 
+              <img 
+                className="profileUserImg"
+                src={
+                  userProfile.profilePicture
+                    ?  userProfile.profilePicture:
+                    "/image/icon_avatar.png"
+                }
+                alt=""
+              />
+              }
             </div>
             <div className="profileInfo">
               <h4 className="profileInfoName">{userProfile.username}</h4>
@@ -115,7 +127,7 @@ console.log('winnie friend', userProfile)
           </div>
           </div>
           <div className='box2' >
-          <SideBar currentUser={user} userProfile={userProfile}/>
+          <SideBar currentUser={user} userProfile={userProfile} setUserProfile={setUserProfile} />
           </div>
           <div className='box3'>
         <UserAllRecipes posts={userPosts} user={userProfile} setPosts={setPosts} currentUser={user}/> 

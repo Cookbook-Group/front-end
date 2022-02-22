@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import './SideBar.css'
 
 
-const SideBar = ({currentUser,userProfile}) => {
+const SideBar = ({currentUser,userProfile,setUserProfile}) => {
     const [friends, setFriends] = useState([])
 
     const getFriends = async () => {
@@ -20,7 +20,7 @@ const SideBar = ({currentUser,userProfile}) => {
     useEffect(() => {
         getFriends()
     },[userProfile])
-
+    console.log('ooooooo',friends)
 
   return (
 
