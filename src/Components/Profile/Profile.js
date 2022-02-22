@@ -3,7 +3,8 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react/cjs/react.development'
 import Popup from '../PopUp/Popup'
-import Upload from '../Uploads/Uploads'
+import Uploads from '../Uploads/Uploads'
+import CoverProfile from './CoverProfile'
 
 const Profile = ({user,setUser,setUserProfile, uploadedImageUrl, setUploadedImageUrl}) => {
     
@@ -39,9 +40,16 @@ const Profile = ({user,setUser,setUserProfile, uploadedImageUrl, setUploadedImag
 
   return (
     <>
-      
-      <form onSubmit={handleSubmit} afterSubmit={() => navigate('/feed/:id')}>
-          <img 
+    <h1 style={{marginBottom:'50px'}}>Update Your Profile</h1>
+    <div style={{marginBottom:'50px'}}>
+    <Uploads uploadedImageUrl={uploadedImageUrl} setUploadedImageUrl={setUploadedImageUrl}/>
+    </div>
+      <div className="profile ">
+        <div className="profileRight">
+          <div className="profileRightTop">
+          <div className="profileCover">
+            <CoverProfile user={user} setUser={setUser} uploadedImageUrl={uploadedImageUrl} setUploadedImageUrl={setUploadedImageUrl} />
+              <img 
                type="button"
                onClick={togglePopup}
                 className="profileUserImg"
@@ -52,6 +60,12 @@ const Profile = ({user,setUser,setUserProfile, uploadedImageUrl, setUploadedImag
                 }
                 alt=""
               />
+            </div>
+            </div>
+            </div>
+            </div>
+      <form onSubmit={handleSubmit} afterSubmit={() => navigate('/feed/:id')}>
+          
        {isOpen && <Popup 
             content={
                 <div>
@@ -62,7 +76,7 @@ const Profile = ({user,setUser,setUserProfile, uploadedImageUrl, setUploadedImag
                     ?  user.profilePicture:
                     "/image/icon_avatar.png"} alt="" />
                   <input 
-                    placeholder ="Add New Picture"
+                    placeholder ="Add New Profile Picture"
                     className="shareInput"
                     onChange ={handleChange} 
                     type='text'
