@@ -16,7 +16,6 @@ const Upload = ({ uploadedImageUrl, setUploadedImageUrl }) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      console.log(reader.result)
       setPreviewSource(reader.result);
     };
   };
@@ -28,7 +27,6 @@ const Upload = ({ uploadedImageUrl, setUploadedImageUrl }) => {
   };
 
   const uploadImage = async (event) => {
-    console.log(`uploadImage firing`)
     const files=event
     const data= new FormData()
     data.append("file", files)
@@ -39,14 +37,12 @@ const Upload = ({ uploadedImageUrl, setUploadedImageUrl }) => {
       body: data
     })
     const resJson = await response.json()
-    console.log(resJson.secure_url)
     setUploadedImageUrl(resJson.secure_url)
-    console.log(uploadedImageUrl)
   }
 
   return (
     <div>
-      <h1>Upload</h1>
+      <h2>Upload</h2>
       <form onSubmit={handleSubmitFile} className="form">
         <input
           type="file"
@@ -55,7 +51,7 @@ const Upload = ({ uploadedImageUrl, setUploadedImageUrl }) => {
           value={fileInputState}
           className="form-input"
         />
-        <button className="btn" type="submit">
+        <button className="shareButton"  type="submit">
           Submit
         </button>
       </form>
