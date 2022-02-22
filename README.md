@@ -1,4 +1,5 @@
 # Front-end
+Created with React.js
 The Premise: Instagram for food, post pictures with recipes, get ratings and comments, search for recipes by parameters, like and follow other users!
 
 ## Working Titles
