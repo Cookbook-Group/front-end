@@ -29,7 +29,7 @@ const Feed = ({post,user,setPosts, setUser}) => {
 
   useEffect(() => {
     getUserProfile()
-  },[])
+  },[id])
 
 
   let userPosts = post.filter((post) => {
