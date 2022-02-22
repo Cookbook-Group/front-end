@@ -3,7 +3,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/cookbook-group/front-end">
+  <a href="https://social-meal-dia.herokuapp.com/">
     <img src="https://res.cloudinary.com/dsruc2myl/image/upload/v1645483491/Project_3/zjjjr772beeecwbond4u.webp" alt="Logo" width="250" height="250">
   </a>
 
@@ -15,7 +15,7 @@
     <a href="https://github.com/Cookbook-Group/front-end"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/cookbook-group/front-end">View Demo</a>
+    <a href="https://social-meal-dia.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/cookbook-group/front-end/issues">Report Bug</a>
     ·
@@ -214,15 +214,15 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-* Nicholas Tonelli - [LinkedIn](https://twitter.com/twitter_handle) [nicholasevantonelli@gmail.com](nicholasevantonelli@gmail.com)
+* Nicholas Tonelli - [LinkedIn](https://twitter.com/twitter_handle) -[nicholasevantonelli@gmail.com](nicholasevantonelli@gmail.com)
 
-* Tamara Wilburn- [LinkedIn](https://www.linkedin.com/in/tamara-wilburn-905842227/) [TamaraAndreaWilburn@gmail.com](TamaraAndreaWilburn@gmail.com)
+* Tamara Wilburn- [LinkedIn](https://www.linkedin.com/in/tamara-wilburn-905842227/) -[TamaraAndreaWilburn@gmail.com](TamaraAndreaWilburn@gmail.com)
 
-* Voravadee Rocco - [LinkedIn](https://www.linkedin.com/in/voravadee-rocco) [vora.rocco@gmail.com](vora.rocco@gmail.com)
+* Voravadee Rocco - [LinkedIn](https://www.linkedin.com/in/voravadee-rocco) -[vora.rocco@gmail.com](vora.rocco@gmail.com)
 
-* Winnie Bolm  - [LinkedIn](https://www.linkedin.com/in/winniebolm/)  [winnie.bolm@gmail.com](winnie.bolm@gmail.com)
+* Winnie Bolm  - [LinkedIn](https://www.linkedin.com/in/winniebolm/)  -[winnie.bolm@gmail.com](winnie.bolm@gmail.com)
 
-Project Link: [https://github.com/cookbook-group/front-end](https://github.com/cookbook-group/front-end)
+Project Link: [https://github.com/cookbook-group](https://github.com/cookbook-group)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
