@@ -4,8 +4,8 @@
 <br />
 <div align="center">
   <a href="https://social-meal-dia.herokuapp.com/">
-<!--     <img src="https://res.cloudinary.com/dsruc2myl/image/upload/v1645483491/Project_3/zjjjr772beeecwbond4u.webp" alt="Logo" width="250" height="250"> -->
- ![259357329_626732378598417_9201685142470419492_n](https://user-images.githubusercontent.com/91036693/156602034-b14d6777-1d66-4e34-af81-c63526847896.png)
+    <img src="https://res.cloudinary.com/dsruc2myl/image/upload/v1645483491/Project_3/zjjjr772beeecwbond4u.webp" alt="Logo" width="250" height="250">
+
   </a>
 
 <h3 align="center">Social Meal-Dia</h3>
